@@ -89,7 +89,7 @@ const AdminOrganizers = () => {
       </div>
 
       <p className="text-[11px] text-muted-foreground mt-2 flex items-center gap-1">
-        <Info className="w-3 h-3" /> Comissão estimada da Corporação sobre inscrições aprovadas de parceiros.
+        <Info className="w-3 h-3" /> Comissão estimada do MovRun Club sobre inscrições aprovadas de parceiros.
       </p>
 
       {s.isLoading ? (
@@ -101,7 +101,7 @@ const AdminOrganizers = () => {
           <h2 className="font-display text-lg font-bold mt-8">Organização principal</h2>
           <div className="mt-2 bg-card border border-border rounded-xl p-4 flex flex-wrap items-center gap-x-8 gap-y-3">
             <div className="min-w-[200px] flex-1 font-semibold">
-              {mainOrg?.name || "Corporação Assessoria Esportiva"}
+              {mainOrg?.name || "MovRun Club"}
             </div>
             <Metric label="Provas ativas" value={String(mainActive)} />
             <Metric label="Provas cadastradas" value={String(mainTotal)} />

@@ -4,7 +4,7 @@ import AdminHighlights from "@/screens/admin/AdminHighlights";
 export const Route = createFileRoute("/admin/highlights")({
   head: () => ({
     meta: [
-      { title: "Destaques — Admin Corporação" },
+      { title: "Destaques — Admin MovRun" },
       { name: "robots", content: "noindex" },
     ],
   }),

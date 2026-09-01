@@ -105,7 +105,7 @@ export async function exportSignupsXlsx(
   const data = rows.filter((r) => (r.status || "").toLowerCase() !== "cancelada");
 
   const wb = new ExcelJS.Workbook();
-  wb.creator = "Corporação";
+  wb.creator = "MovRun Club";
   wb.created = new Date();
 
   // ---- Aba 1: Inscritos ----

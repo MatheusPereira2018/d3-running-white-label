@@ -6,7 +6,7 @@ export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: buildMeta({
       title: "Quem somos",
-      description: "Conheça a história, a metodologia e o time da Corporação.",
+      description: "Conheça a história, a metodologia e o time do MovRun Club.",
       path: "/sobre",
     }),
   }),

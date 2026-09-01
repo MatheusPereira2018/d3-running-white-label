@@ -4,7 +4,7 @@ import AdminPhotoEvents from "@/screens/admin/AdminPhotoEvents";
 export const Route = createFileRoute("/admin/photo-events")({
   head: () => ({
     meta: [
-      { title: "Eventos de fotos — Admin Corporação" },
+      { title: "Eventos de fotos — Admin MovRun" },
       { name: "robots", content: "noindex" },
     ],
   }),

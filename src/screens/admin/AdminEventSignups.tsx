@@ -122,7 +122,7 @@ const AdminEventSignups = () => {
     const ev: any = eventMap.get(eventId);
     const org = ev?.organizer_id ? organizerMap.get(ev.organizer_id) : null;
     const corp = !ev?.organizer_id || isMainOrg((org as any)?.name);
-    return { corp, name: corp ? (org as any)?.name || "Corporação Assessoria Esportiva" : (org as any)?.name || "Organizador", organizerId: ev?.organizer_id ?? null };
+    return { corp, name: corp ? (org as any)?.name || "MovRun Club" : (org as any)?.name || "Organizador", organizerId: ev?.organizer_id ?? null };
   };
 
   // Base (sem o filtro de gênero) para contadores consistentes com a lista
@@ -250,7 +250,7 @@ const AdminEventSignups = () => {
 
       {isAdmin && (
         <div className="flex flex-wrap items-center gap-2">
-          {([["all", "Todas"], ["corp", "Corporação"], ["external", "Organizadores externos"]] as const).map(([k, label]) => (
+          {([["all", "Todas"], ["corp", "MovRun Club"], ["external", "Organizadores externos"]] as const).map(([k, label]) => (
             <button
               key={k}
               type="button"
@@ -269,7 +269,7 @@ const AdminEventSignups = () => {
             onChange={(e) => setOrgFilter(e.target.value)}
           >
             <option value="all">{ownership === "external" ? "Todos os parceiros" : "Todos os organizadores"}</option>
-            {ownership !== "external" && <option value="corp">Corporação</option>}
+            {ownership !== "external" && <option value="corp">MovRun Club</option>}
             {(ownership === "external" ? partnerOrganizers : organizers).map((o: any) => (
               <option key={o.id} value={o.id}>{o.name}</option>
             ))}
@@ -338,7 +338,7 @@ const AdminEventSignups = () => {
                         <div className="mt-0.5 text-[11px] text-muted-foreground">
                           {own.name} •{" "}
                           <span className={own.corp ? "font-semibold text-brand" : "font-semibold text-foreground/70"}>
-                            {own.corp ? "Corporação" : "Organizador"}
+                            {own.corp ? "MovRun Club" : "Organizador"}
                           </span>
                         </div>
                       );

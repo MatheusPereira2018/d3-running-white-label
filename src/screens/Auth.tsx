@@ -100,7 +100,7 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-muted/40 via-background to-background flex items-center justify-center p-4 py-12">
-      <SEO title="Entrar ou criar conta | Corporação Assessoria" description="Acesse sua conta para se inscrever em corridas." />
+      <SEO title="Entrar ou criar conta | MovRun Club" description="Acesse sua conta para se inscrever em corridas." />
       <div className="w-full max-w-lg">
         <Link
           to="/"

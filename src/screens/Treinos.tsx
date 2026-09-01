@@ -32,8 +32,8 @@ const Treinos = () => {
   return (
     <Layout>
       <SEO
-        title="Próximos treinos | Corporação Assessoria"
-        description="Confira a agenda de treinões e encontros da equipe Corporação. Pistas, parques e ruas, para todos os níveis."
+        title="Próximos treinos | MovRun Club"
+        description="Confira a agenda de treinões e encontros da equipe MovRun Club. Pistas, parques e ruas, para todos os níveis."
       />
       <PageHero
         eyebrow="Agenda da equipe"

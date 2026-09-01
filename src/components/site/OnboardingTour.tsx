@@ -26,7 +26,7 @@ const steps = [
   {
     icon: Flag,
     title: "Tudo pronto para sua próxima prova",
-    text: "Acompanhe sua jornada com a Corporação.",
+    text: "Acompanhe sua jornada com a MovRun Club.",
   },
 ];
 

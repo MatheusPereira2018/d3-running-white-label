@@ -4,7 +4,7 @@ import AdminGallery from "@/screens/admin/AdminGallery";
 export const Route = createFileRoute("/admin/gallery")({
   head: () => ({
     meta: [
-      { title: "Galeria — Admin Corporação" },
+      { title: "Galeria — Admin MovRun" },
       { name: "robots", content: "noindex" },
     ],
   }),

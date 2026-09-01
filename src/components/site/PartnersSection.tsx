@@ -138,7 +138,7 @@ export const PartnersSection = () => {
   return (
     <section
       id="parceiros"
-      aria-label="Benefícios para alunos da Corporação"
+      aria-label="Benefícios para alunos do MovRun Club"
       className="relative bg-[#070707] text-white overflow-hidden border-t border-white/[0.05] scroll-mt-24"
     >
       <div
@@ -165,11 +165,11 @@ export const PartnersSection = () => {
               </span>
             </div>
             <h2 className="mt-2 font-display text-xl md:text-2xl font-semibold tracking-tight text-white leading-tight">
-              Clube de benefícios Corporação
+              Clube de benefícios MovRun Club
             </h2>
           </div>
           <p className="text-[12px] md:text-[13px] text-white/50 max-w-xs sm:text-right leading-relaxed">
-            Marcas parceiras liberam descontos e condições especiais para alunos da Corporação.
+            Marcas parceiras liberam descontos e condições especiais para alunos do MovRun Club.
           </p>
         </div>
 

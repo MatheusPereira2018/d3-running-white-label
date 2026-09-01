@@ -25,7 +25,7 @@ export const IncompleteProfileBanner = ({ className = "" }: { className?: string
         <div className="min-w-0 flex-1">
           <p className="text-sm font-semibold leading-tight">Complete seu cadastro</p>
           <p className="text-xs text-muted-foreground leading-tight">
-            Complete seus dados para aproveitar todos os recursos da Corporação.
+            Complete seus dados para aproveitar todos os recursos do MovRun Club.
           </p>
         </div>
         <Button asChild size="sm" variant="brand" className="shrink-0">

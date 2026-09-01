@@ -153,7 +153,7 @@ const MinhaConta = () => {
 
   return (
     <Layout>
-      <SEO title="Minha Corporação | Corporação Assessoria" description="Gerencie seus dados, treinos, provas e inscrições." />
+      <SEO title="Minha Conta | MovRun Club" description="Gerencie seus dados, treinos, provas e inscrições." />
       <WelcomeDialog firstName={firstName} />
       <OnboardingTour />
       <section className="section-padding pt-28 md:pt-32">
@@ -166,7 +166,7 @@ const MinhaConta = () => {
                 Olá, {firstName} <span className="text-lg md:text-2xl">👋</span>
               </h1>
               <p className="text-sm text-muted-foreground mt-1">
-                Acompanhe treinos, provas e sua evolução na Corporação.
+                Acompanhe treinos, provas e sua evolução no MovRun Club.
               </p>
             </div>
             <Button

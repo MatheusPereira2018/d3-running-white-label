@@ -4,7 +4,7 @@ import AdminFaqs from "@/screens/admin/AdminFaqs";
 export const Route = createFileRoute("/admin/faqs")({
   head: () => ({
     meta: [
-      { title: "FAQ — Admin Corporação" },
+      { title: "FAQ — Admin MovRun" },
       { name: "robots", content: "noindex" },
     ],
   }),

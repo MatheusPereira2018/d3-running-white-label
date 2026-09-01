@@ -191,9 +191,9 @@ const AdminDashboard = () => {
     const eventOrgInfo = (eventId: string) => {
       const event = priceMap.get(eventId);
       const orgId = (event as AdminPricingRow)?.organizer_id;
-      if (!orgId) return { isCorp: true, name: "Corporação Assessoria Esportiva" };
+      if (!orgId) return { isCorp: true, name: "MovRun Club" };
       const org = organizerMap.get(orgId);
-      if (org && isMainOrg(org.name)) return { isCorp: true, name: "Corporação Assessoria Esportiva" };
+      if (org && isMainOrg(org.name)) return { isCorp: true, name: "MovRun Club" };
       return { isCorp: false, name: org?.name || "Organizador" };
     };
 
@@ -305,7 +305,7 @@ const AdminDashboard = () => {
               label="Receita confirmada"
               value={brl(metrics.revenue)}
               hint={`${metrics.confirmed} inscrições pagas`}
-              hint2={`Corporação: ${brl(metrics.revenueCorporate)} • Organizadores: ${brl(metrics.revenueOrganizers)}`}
+              hint2={`MovRun Club: ${brl(metrics.revenueCorporate)} • Organizadores: ${brl(metrics.revenueOrganizers)}`}
               accent
             />
             <Kpi
@@ -313,7 +313,7 @@ const AdminDashboard = () => {
               label="Receita em aberto"
               value={brl(metrics.pendingRevenue)}
               hint={`${metrics.pending} inscrições pendentes`}
-              hint2={`Corporação: ${brl(metrics.pendingRevenueCorporate)} • Organizadores: ${brl(metrics.pendingRevenueOrganizers)}`}
+              hint2={`MovRun Club: ${brl(metrics.pendingRevenueCorporate)} • Organizadores: ${brl(metrics.pendingRevenueOrganizers)}`}
             />
             <Kpi
               icon={TrendingUp}
@@ -387,7 +387,7 @@ const AdminDashboard = () => {
                                 : "bg-blue-500/10 text-blue-500"
                             )}
                           >
-                            {e.isCorp ? "Corporação" : "Organizador"}
+                            {e.isCorp ? "MovRun Club" : "Organizador"}
                           </span>
                         </div>
                         <div className="text-xs text-muted-foreground mt-0.5 truncate">

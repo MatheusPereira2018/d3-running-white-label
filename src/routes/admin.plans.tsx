@@ -4,7 +4,7 @@ import AdminPlans from "@/screens/admin/AdminPlans";
 export const Route = createFileRoute("/admin/plans")({
   head: () => ({
     meta: [
-      { title: "Planos — Admin Corporação" },
+      { title: "Planos — Admin MovRun" },
       { name: "robots", content: "noindex" },
     ],
   }),
