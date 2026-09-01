@@ -9,7 +9,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { PLAN_CATEGORIES, type PlanCategory } from "@/data/plans";
 import { whatsappLink } from "@/data/settings";
 import { cn } from "@/lib/utils";
-import logoCorporacao from "@/assets/logo-corporacao.png";
 
 const DEFAULT_TAB: PlanCategory = "corrida";
 

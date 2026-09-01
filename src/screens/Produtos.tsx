@@ -12,11 +12,11 @@ const Produtos = () => {
     <Layout>
       <SEO
         title="Produtos | MovRun Club"
-        description="Vista a equipe! Camisetas, bonés, jaquetas e acessórios oficiais da MovRun Club."
+        description="Vista a equipe! Camisetas, bonés, jaquetas e acessórios oficiais do MovRun Club."
       />
       <PageHero
         eyebrow="Loja da equipe"
-        title="Vista a MovRun Club."
+        title="Vista o MovRun Club."
         subtitle="Peças pensadas para quem treina de verdade. Tecidos premium, design exclusivo, identidade da tribo."
       />
 
