@@ -28,7 +28,7 @@ const stock = (id: string, w = 1200) =>
 export const photoEvents: PhotoEvent[] = [
   {
     id: "1",
-    title: "Treinão Corporação AE",
+    title: "Treinão MovRun Club",
     date: "2026-04-20",
     location: "Araraquara/SP",
     coverImage: stock("1552674605-db6ffd4facb5"),
