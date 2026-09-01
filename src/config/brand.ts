@@ -26,7 +26,7 @@ export const brand = {
   favicon: "/favicon.ico",
 
   // Cores (hex para referência; as variáveis CSS em styles.css são a fonte da verdade)
-  primaryColor: "#1354D6",
+  primaryColor: "#A1E74E",
   secondaryColor: "#FFFFFF",
 
   // Contato e redes
