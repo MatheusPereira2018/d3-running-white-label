@@ -109,6 +109,7 @@ export type Database = {
           description: string
           distance: string
           distances: Json
+          documents: Json
           event_terms: string | null
           genders: Json
           id: string
@@ -117,6 +118,7 @@ export type Database = {
           kit_delivery: string | null
           kit_info: string | null
           kit_options: Json
+          max_slots: number | null
           more_info: string | null
           name: string
           organizer_id: string | null
@@ -141,6 +143,7 @@ export type Database = {
           description?: string
           distance?: string
           distances?: Json
+          documents?: Json
           event_terms?: string | null
           genders?: Json
           id?: string
@@ -149,6 +152,7 @@ export type Database = {
           kit_delivery?: string | null
           kit_info?: string | null
           kit_options?: Json
+          max_slots?: number | null
           more_info?: string | null
           name: string
           organizer_id?: string | null
@@ -173,6 +177,7 @@ export type Database = {
           description?: string
           distance?: string
           distances?: Json
+          documents?: Json
           event_terms?: string | null
           genders?: Json
           id?: string
@@ -181,6 +186,7 @@ export type Database = {
           kit_delivery?: string | null
           kit_info?: string | null
           kit_options?: Json
+          max_slots?: number | null
           more_info?: string | null
           name?: string
           organizer_id?: string | null
@@ -939,6 +945,18 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      list_event_signups_public: {
+        Args: { _event_id: string }
+        Returns: {
+          age: number
+          category: string
+          city: string
+          full_name: string
+          gender: string
+          status: string
+          team_name: string
+        }[]
       }
     }
     Enums: {
