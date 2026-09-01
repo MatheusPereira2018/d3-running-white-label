@@ -36,7 +36,7 @@ const ResetPassword = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <SEO title="Redefinir senha | PACE" description="Redefina sua senha de acesso." />
+      <SEO title="Redefinir senha | MovRun Club" description="Redefina sua senha de acesso." />
       <div className="w-full max-w-md">
         <div className="bg-card border border-border rounded-2xl p-8 shadow-card">
           <h1 className="font-display text-2xl font-bold mb-1">Redefinir senha</h1>
