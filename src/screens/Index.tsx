@@ -168,7 +168,7 @@ const Index = () => {
               fetchPriority="high"
               decoding="sync"
               loading="eager"
-              className="absolute inset-0 w-full h-full object-cover object-[68%_center] animate-hero-zoom [filter:contrast(1.14)_saturate(1.04)_brightness(0.92)_blur(1.5px)] md:[filter:contrast(1.05)_saturate(1.08)] animate-fade-in"
+              className="absolute inset-0 w-full h-full object-cover object-[58%_72%] sm:object-[50%_68%] opacity-100 [filter:contrast(1.06)_saturate(1.06)_brightness(0.95)]"
               width={1920}
               height={1280}
             />
