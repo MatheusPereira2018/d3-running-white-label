@@ -145,6 +145,7 @@ export const mockEventRows = staticEvents.map((e) => ({
   more_info: e.moreInfo ?? "",
   event_terms: e.eventTerms ?? "",
   registration_deadline: e.registrationDeadline ?? null,
+  start_time: "07:00" as string | null,
   max_slots: null as number | null,
   documents: [] as unknown[],
   distances: e.distances ?? [],
