@@ -5,6 +5,7 @@ import shirt from "@/assets/product-shirt.jpg";
 import cap from "@/assets/product-cap.jpg";
 import bottle from "@/assets/product-bottle.jpg";
 import jacket from "@/assets/product-jacket.jpg";
+import copoGarrafa from "@/assets/movrun-copo-garrafa.png.asset.json";
 
 export type Product = {
   id: string;
@@ -48,5 +49,38 @@ export const products: Product[] = [
     price: "R$ 289",
     description: "Proteção contra vento e chuva leve. Compactável, ideal para treinos cedo.",
     ctaMessage: "Olá! Quero comprar a Jaqueta Corta-Vento MovRun.",
+  },
+  {
+    id: "p5",
+    name: "Kit Copo & Garrafa MovRun",
+    image: copoGarrafa.url,
+    price: "R$ 199",
+    description:
+      "Lançamento: copo térmico 470ml + garrafa inox 500ml com a marca MovRun Club gravada. Mantém a temperatura por horas.",
+    ctaMessage: "Olá! Quero comprar o Kit Copo & Garrafa MovRun.",
+  },
+  {
+    id: "p6",
+    name: "Copo Térmico MovRun 470ml",
+    image: copoGarrafa.url,
+    price: "R$ 109",
+    description: "Copo térmico em inox com tampa deslizante e acabamento fosco. Perfeito para o pós-treino.",
+    ctaMessage: "Olá! Quero comprar o Copo Térmico MovRun.",
+  },
+  {
+    id: "p7",
+    name: "Garrafa Inox MovRun 500ml",
+    image: copoGarrafa.url,
+    price: "R$ 129",
+    description: "Garrafa térmica inox com logo gravado a laser. Gelada por até 12h, quente por até 6h.",
+    ctaMessage: "Olá! Quero comprar a Garrafa Inox MovRun.",
+  },
+  {
+    id: "p8",
+    name: "Chaveiro Abridor MovRun",
+    image: copoGarrafa.url,
+    price: "R$ 29",
+    description: "Chaveiro abridor em metal com acabamento preto fosco e marca MovRun Club.",
+    ctaMessage: "Olá! Quero comprar o Chaveiro Abridor MovRun.",
   },
 ];

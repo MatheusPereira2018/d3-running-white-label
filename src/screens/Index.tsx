@@ -45,17 +45,20 @@ const formatTreinaoDate = (iso: string) => {
   return d.toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "long" });
 };
 
-const AvatarPlaceholder = ({ className }: { className?: string }) => (
-  <div
-    className={`flex items-center justify-center bg-brand/10 text-brand font-display font-semibold ${className}`}
-  >
-    {brand.shortName
-      .split(" ")
-      .map((w) => w[0])
-      .join("")
-      .slice(0, 2)
-      .toUpperCase()}
-  </div>
+const communityFaces = [
+  "https://images.unsplash.com/photo-1502767089025-6572583495b0?auto=format&fit=facearea&facepad=3&w=160&h=160&q=70",
+  "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=facearea&facepad=3&w=160&h=160&q=70",
+  "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=facearea&facepad=3&w=160&h=160&q=70",
+  "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=facearea&facepad=3&w=160&h=160&q=70",
+];
+
+const AvatarPlaceholder = ({ className, index = 0 }: { className?: string; index?: number }) => (
+  <img
+    src={communityFaces[index % communityFaces.length]}
+    alt={`Membro da comunidade ${brand.shortName}`}
+    loading="lazy"
+    className={`object-cover bg-brand/10 ${className}`}
+  />
 );
 
 const NextTreinaoCard = ({ training }: { training: Training }) => (
@@ -312,6 +315,7 @@ const Index = () => {
                 {Array.from({ length: 4 }).map((_, i) => (
                   <AvatarPlaceholder
                     key={i}
+                    index={i}
                     className="w-8 h-8 sm:w-8 sm:h-8 rounded-full border-2 border-black/60 ring-1 ring-white/10 text-[10px]"
                   />
                 ))}
@@ -486,6 +490,7 @@ const Index = () => {
                 {Array.from({ length: 4 }).map((_, i) => (
                   <AvatarPlaceholder
                     key={i}
+                    index={i}
                     className="w-9 h-9 rounded-full border-2 border-background text-[11px]"
                   />
                 ))}
