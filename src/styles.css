@@ -34,12 +34,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
-    --primary: 0 0% 10%;              /* near black */
+    --primary: 219 84% 46%;           /* MovRun blue */
     --primary-foreground: 0 0% 100%;
 
-    --accent-brand: 0 0% 10%;         /* near black */
+    --accent-brand: 219 84% 46%;      /* MovRun blue */
     --accent-brand-foreground: 0 0% 100%;
-    --accent-glow: 0 0% 25%;          /* cinza escuro */
+    --accent-glow: 213 92% 62%;       /* azul claro */
 
     --secondary: 0 0% 96%;            /* light gray surfaces */
     --secondary-foreground: 0 0% 8%;
@@ -58,19 +58,19 @@
 
     --border: 0 0% 86%;
     --input: 0 0% 86%;
-    --ring: 0 0% 10%;
+    --ring: 219 84% 46%;
 
     --radius: 0.75rem;
 
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 4% / 0.92) 0%, hsl(0 0% 6% / 0.75) 50%, hsl(0 0% 20% / 0.28) 100%);
-    --gradient-brand: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(0 0% 25%) 100%);
+    --gradient-brand: linear-gradient(135deg, hsl(219 84% 40%) 0%, hsl(213 92% 62%) 100%);
     --gradient-dark: linear-gradient(180deg, hsl(0 0% 10%) 0%, hsl(0 0% 4%) 100%);
     --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(0 0% 100% / 0.95) 100%);
 
     --shadow-elegant: 0 20px 50px -20px hsl(0 0% 10% / 0.20);
-    --shadow-brand: 0 20px 40px -15px hsl(0 0% 10% / 0.35);
+    --shadow-brand: 0 20px 40px -15px hsl(219 84% 46% / 0.40);
     --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.10);
-    --shadow-glow: 0 0 24px hsl(0 0% 10% / 0.30);
+    --shadow-glow: 0 0 24px hsl(219 84% 46% / 0.35);
 
     --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -87,12 +87,12 @@
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 4%;
+    --primary: 213 92% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --accent-brand: 0 0% 100%;
-    --accent-brand-foreground: 0 0% 4%;
-    --accent-glow: 0 0% 85%;
+    --accent-brand: 213 92% 60%;
+    --accent-brand-foreground: 0 0% 100%;
+    --accent-glow: 208 100% 72%;
 
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 100%;
@@ -107,16 +107,16 @@
 
     --border: 0 0% 16%;
     --input: 0 0% 16%;
-    --ring: 0 0% 100%;
+    --ring: 213 92% 60%;
 
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 4% / 0.92) 0%, hsl(0 0% 6% / 0.75) 50%, hsl(0 0% 30% / 0.28) 100%);
-    --gradient-brand: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 85%) 100%);
+    --gradient-brand: linear-gradient(135deg, hsl(219 84% 46%) 0%, hsl(208 100% 68%) 100%);
     --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(0 0% 4% / 0.95) 100%);
 
     --shadow-elegant: 0 20px 50px -20px hsl(0 0% 100% / 0.15);
-    --shadow-brand: 0 20px 40px -15px hsl(0 0% 100% / 0.25);
+    --shadow-brand: 0 20px 40px -15px hsl(213 92% 60% / 0.35);
     --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.45);
-    --shadow-glow: 0 0 24px hsl(0 0% 100% / 0.20);
+    --shadow-glow: 0 0 24px hsl(213 92% 60% / 0.30);
   }
 }
 
