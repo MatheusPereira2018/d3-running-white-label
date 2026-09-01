@@ -145,6 +145,35 @@ const Auth = () => {
               </TabsTrigger>
             </TabsList>
 
+            <div className="mb-6 rounded-2xl border border-dashed border-primary/50 bg-primary/5 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Acesso de demonstração
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Entre com um clique para ver a experiência de cada perfil.
+              </p>
+              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <Button
+                  type="button"
+                  variant="secondary"
+                  className="h-11 rounded-xl"
+                  disabled={submitting}
+                  onClick={() => demoLogin("demo.movrun@gmail.com", "Aluno@2026", "/minha-conta")}
+                >
+                  Ver como aluno
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="h-11 rounded-xl"
+                  disabled={submitting}
+                  onClick={() => demoLogin("admin.movrun@gmail.com", "MovRun@2026", "/admin")}
+                >
+                  Ver como admin
+                </Button>
+              </div>
+            </div>
+
             <GoogleSignIn redirectTo={redirectTo} />
 
             <div className="relative my-7">
