@@ -81,7 +81,7 @@ export const PlansCarousel = ({ plans }: { plans: Plan[] }) => {
     <>
       <div
         ref={scrollerRef}
-        className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pt-6 pb-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden items-stretch"
+        className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pt-6 pb-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden items-stretch md:justify-center"
       >
         {sortedPlans.map((p) => {
           const isCheapest = p.id === cheapestId;
@@ -89,7 +89,7 @@ export const PlansCarousel = ({ plans }: { plans: Plan[] }) => {
             <div
               key={p.id}
               data-plan-card
-              className={`snap-start shrink-0 w-[82%] sm:w-[46%] md:w-[31%] lg:w-[calc((100%-4.5rem)/4)] flex relative ${
+              className={`snap-start shrink-0 w-[82%] sm:w-[46%] md:w-[31%] lg:w-[30%] lg:max-w-[360px] flex relative ${
                 isCheapest ? "md:scale-100" : ""
               }`}
             >
