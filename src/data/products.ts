@@ -19,11 +19,11 @@ export type Product = {
 export const products: Product[] = [
   {
     id: "p1",
-    name: "Camiseta Oficial PACE",
+    name: "Camiseta Oficial MovRun",
     image: shirt,
     price: "R$ 119",
     description: "Tecido dry-fit premium, leve e respirável. Perfeita para treinos e provas.",
-    ctaMessage: "Olá! Quero comprar a Camiseta Oficial PACE.",
+    ctaMessage: "Olá! Quero comprar a Camiseta Oficial MovRun.",
   },
   {
     id: "p2",
@@ -31,7 +31,7 @@ export const products: Product[] = [
     image: cap,
     price: "R$ 89",
     description: "Boné esportivo com tecido respirável e proteção UV. Ajuste confortável.",
-    ctaMessage: "Olá! Quero comprar o Boné Performance PACE.",
+    ctaMessage: "Olá! Quero comprar o Boné Performance MovRun.",
   },
   {
     id: "p3",
@@ -39,7 +39,7 @@ export const products: Product[] = [
     image: bottle,
     price: "R$ 149",
     description: "Mantém líquidos gelados por até 12h. Inox premium, leve e durável.",
-    ctaMessage: "Olá! Quero comprar o Squeeze Térmico PACE.",
+    ctaMessage: "Olá! Quero comprar o Squeeze Térmico MovRun.",
   },
   {
     id: "p4",
@@ -47,6 +47,6 @@ export const products: Product[] = [
     image: jacket,
     price: "R$ 289",
     description: "Proteção contra vento e chuva leve. Compactável, ideal para treinos cedo.",
-    ctaMessage: "Olá! Quero comprar a Jaqueta Corta-Vento PACE.",
+    ctaMessage: "Olá! Quero comprar a Jaqueta Corta-Vento MovRun.",
   },
 ];
