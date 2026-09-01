@@ -89,6 +89,18 @@ const Auth = () => {
     }
   }, [user, isAdmin, loading, navigate, redirectTo]);
 
+  const demoLogin = async (demoEmail: string, demoPassword: string, dest: string) => {
+    setSubmitting(true);
+    const { error } = await supabase.auth.signInWithPassword({ email: demoEmail, password: demoPassword });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Não foi possível entrar na conta de demonstração: " + error.message);
+      return;
+    }
+    toast.success("Entrando na demonstração...");
+    navigate(dest, { replace: true });
+  };
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
