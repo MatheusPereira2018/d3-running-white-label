@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowUpRight } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { mockPartners } from "@/data/mock";
 
 type Partner = {
   id: string;
@@ -17,27 +17,10 @@ type Partner = {
 
 const usePartners = () =>
   useQuery({
-    queryKey: ["partners", "standard"],
-    queryFn: async (): Promise<Partner[]> => {
-      const { data, error } = await supabase
-        .from("partners")
-        .select("*")
-        .eq("active", true)
-        .neq("tier", "gold")
-        .order("sort_order", { ascending: true });
-      if (error) throw error;
-      return (data ?? []).map((r: any) => ({
-        id: r.id,
-        name: r.name,
-        logo: r.logo,
-        url: r.url,
-        description: r.description ?? "",
-        coupon_code: r.coupon_code ?? "",
-        benefit_text: r.benefit_text ?? "",
-        featured: !!r.featured,
-        category: r.category ?? "",
-      }));
-    },
+    queryKey: ["partners", "standard", "mock"],
+    queryFn: async (): Promise<Partner[]> =>
+      mockPartners.filter((p) => p.tier !== "gold"),
+    staleTime: Infinity,
   });
 
 const PartnerCard = ({ partner, mobile = false }: { partner: Partner; mobile?: boolean }) => {

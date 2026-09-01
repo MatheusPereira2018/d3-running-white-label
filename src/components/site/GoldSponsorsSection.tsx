@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@/lib/router-compat";
 import { ArrowUpRight, Ticket, Lock } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { mockPartners } from "@/data/mock";
 import { useAuth } from "@/contexts/AuthContext";
 
 type GoldPartner = {
@@ -18,26 +18,10 @@ type GoldPartner = {
 
 const useGoldPartners = () =>
   useQuery({
-    queryKey: ["partners", "gold"],
-    queryFn: async (): Promise<GoldPartner[]> => {
-      const { data, error } = await supabase
-        .from("partners")
-        .select("*")
-        .eq("active", true)
-        .eq("tier", "gold")
-        .order("sort_order", { ascending: true });
-      if (error) throw error;
-      return (data ?? []).map((r: any) => ({
-        id: r.id,
-        name: r.name,
-        logo: r.logo,
-        url: r.url,
-        description: r.description ?? "",
-        benefit_text: r.benefit_text ?? "",
-        coupon_code: r.coupon_code ?? "",
-        category: r.category ?? "",
-      }));
-    },
+    queryKey: ["partners", "gold", "mock"],
+    queryFn: async (): Promise<GoldPartner[]> =>
+      mockPartners.filter((p) => p.tier === "gold"),
+    staleTime: Infinity,
   });
 
 const GoldCard = ({ partner, index }: { partner: GoldPartner; index: number }) => {
