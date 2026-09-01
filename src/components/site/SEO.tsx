@@ -4,7 +4,7 @@ import { SITE_NAME, SITE_DESCRIPTION, SITE_OG_IMAGE, absoluteUrl } from "@/lib/s
 type Props = {
   title: string;
   description?: string;
-  /** Imagem de compartilhamento — sempre um asset oficial da Corporação ou da própria prova. */
+  /** Imagem de compartilhamento — sempre um asset oficial do MovRun Club ou da própria prova. */
   image?: string;
 };
 

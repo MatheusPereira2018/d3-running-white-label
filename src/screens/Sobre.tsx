@@ -7,7 +7,7 @@ import { useSettings } from "@/contexts/SettingsContext";
 import coachLucas from "@/assets/coach-lucas.jpg";
 import coachHelo from "@/assets/coach-helo.jpg";
 import coachesRunning from "@/assets/sobre-medalhistas.jpg";
-import logoCorporacao from "@/assets/logo-corporacao.png";
+import logoAsset from "@/assets/movrun-logo.png.asset.json";
 import com1 from "@/assets/comunidade-1.jpg.asset.json";
 import com2 from "@/assets/comunidade-2.jpg.asset.json";
 import com3 from "@/assets/comunidade-3.jpg.asset.json";
@@ -31,12 +31,12 @@ const QuemSomos = () => {
   return (
   <Layout>
     <SEO
-      title="Quem Somos | Corporação Assessoria Esportiva"
-      description="Conheça os professores Lucas Teixeira e Helô Teixeira, fundadores da Corporação Assessoria Esportiva. Natação, corrida e comunidade."
+      title="Quem Somos | MovRun Club"
+      description="Conheça os professores Lucas Teixeira e Helô Teixeira, fundadores do MovRun Club. Natação, corrida e comunidade."
     />
     <PageHero
       title="Quem somos"
-      subtitle="Por trás da Corporação estão dois professores de Educação Física que vivem o esporte e cuidam de perto da evolução de cada atleta."
+      subtitle="Por trás do MovRun Club estão dois professores de Educação Física que vivem o esporte e cuidam de perto da evolução de cada atleta."
     />
 
     {/* COACHES */}
@@ -134,7 +134,7 @@ const QuemSomos = () => {
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-balance">
             Juntos somos a{" "}
-            <span style={{ color: "#30FF34" }}>Corporação</span>
+            <span className="text-primary">MovRun Club</span>
           </h2>
           <p className="mt-6 text-lg text-white/80 leading-relaxed max-w-xl">
             Mais que uma assessoria, somos uma família que acredita no poder do esporte para transformar pessoas. Cada treino, cada prova e cada conquista é construída em equipe.
@@ -142,10 +142,10 @@ const QuemSomos = () => {
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 backdrop-blur-sm">
-              <img src={logoCorporacao} alt="Corporação" className="w-10 h-10 object-contain" />
+              <img src={logoAsset.url} alt="MovRun Club" className="w-10 h-10 object-contain" />
               <div>
-                <p className="font-display font-bold text-sm leading-tight">Corporação</p>
-                <p className="text-xs text-white/60 leading-tight">Assessoria Esportiva</p>
+                <p className="font-display font-bold text-sm leading-tight">MovRun Club</p>
+                <p className="text-xs text-white/60 leading-tight">Comunidade de corrida</p>
               </div>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 backdrop-blur-sm">
@@ -189,7 +189,7 @@ const QuemSomos = () => {
               É constância <span className="gradient-brand-text">em grupo</span>.
             </h2>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Da primeira caminhada aos 21km, a Corporação nasceu para orientar corredores com método, planilha individual e um Treinão mensal que reúne a equipe.
+              Da primeira caminhada aos 21km, o MovRun Club nasceu para orientar corredores com método, planilha individual e um Treinão mensal que reúne a equipe.
             </p>
 
             <ul className="mt-8 space-y-3">
@@ -208,7 +208,7 @@ const QuemSomos = () => {
               <div className="col-span-4 row-span-4 relative rounded-2xl overflow-hidden shadow-card group">
                 <img
                   src={racesTeam}
-                  alt="Equipe da Corporação reunida após a prova"
+                  alt="Equipe do MovRun Club reunida após a prova"
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />
@@ -230,7 +230,7 @@ const QuemSomos = () => {
               <div className="col-span-2 row-span-3 relative rounded-2xl overflow-hidden shadow-card group">
                 <img
                   src={gallery5}
-                  alt="Atleta da Corporação sorrindo no treino"
+                  alt="Atleta do MovRun Club sorrindo no treino"
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 />

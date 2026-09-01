@@ -145,7 +145,7 @@ export const GoldSponsorsSection = () => {
   return (
     <section
       id="patrocinadores-gold"
-      aria-label="Patrocinadores Ouro da Corporação"
+      aria-label="Patrocinadores Ouro do MovRun Club"
       className="relative bg-[#070707] text-white overflow-hidden border-t border-white/[0.05] scroll-mt-24"
     >
       <div
@@ -175,7 +175,7 @@ export const GoldSponsorsSection = () => {
             Cupons de desconto exclusivos para alunos
           </h2>
           <p className="mt-2 text-[13px] md:text-[14px] text-white/55 leading-relaxed">
-            Marcas parceiras liberam descontos e condições especiais para alunos da Corporação.
+            Marcas parceiras liberam descontos e condições especiais para alunos do MovRun Club.
           </p>
         </div>
 

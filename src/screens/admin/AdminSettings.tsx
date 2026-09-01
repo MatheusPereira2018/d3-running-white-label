@@ -272,7 +272,7 @@ const AdminSettings = () => {
           <div>
             <h2 className="font-display text-xl font-semibold">Fotos dos cards de benefícios (Home)</h2>
             <p className="text-sm text-muted-foreground mt-1">
-              São os 6 cards que aparecem na seção <strong>"Por que Corporação"</strong> na página inicial.
+              São os 6 cards que aparecem na seção <strong>"Por que MovRun Club"</strong> na página inicial.
             </p>
             <div className="mt-3 text-sm bg-muted/40 border border-border rounded-lg p-3 space-y-1">
               <p><strong>📐 Tamanho recomendado:</strong> 1200 × 900 px (proporção 4:3, horizontal)</p>

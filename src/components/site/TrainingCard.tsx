@@ -50,7 +50,7 @@ export const TrainingCard = ({ training }: { training: Training }) => {
   const settings = useSettings();
   const photo = training.image && training.image.trim().length > 0 ? training.image : pickPhoto(training.id);
   const vibe = buildVibeLabel(training);
-  const waMsg = `Olá! Quero participar do treino "${training.title}" da Corporação.`;
+  const waMsg = `Olá! Quero participar do treino "${training.title}" do MovRun Club.`;
   const aspect = aspectClass(settings?.trainings?.bannerAspect ?? "9/16");
 
   return (

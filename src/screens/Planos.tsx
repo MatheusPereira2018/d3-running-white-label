@@ -63,7 +63,7 @@ const Planos = () => {
   return (
     <Layout>
       <SEO
-        title="Planos | Corporação Assessoria Esportiva"
+        title="Planos | MovRun Club"
         description="Planos de corrida, fortalecimento e pacotes completos. Escolha mensal, trimestral, semestral ou anual."
       />
       <PageHero

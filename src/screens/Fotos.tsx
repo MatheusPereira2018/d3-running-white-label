@@ -13,7 +13,7 @@ const Fotos = () => {
   return (
     <Layout>
       <SEO
-        title="Fotos dos eventos | Corporação Assessoria Esportiva"
+        title="Fotos dos eventos | MovRun Club"
         description="Links oficiais para visualizar as fotos dos nossos treinos, provas e eventos."
       />
       <PageHero

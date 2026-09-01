@@ -39,7 +39,7 @@ const Contato = () => {
       title: "WhatsApp",
       value: siteSettings.contact.whatsappDisplay,
       hint: "Mais rápido",
-      href: whatsappLink("Olá! Vim pelo site da Corporação."),
+      href: whatsappLink("Olá! Vim pelo site do MovRun Club."),
     },
     {
       icon: Instagram,
@@ -66,8 +66,8 @@ const Contato = () => {
   return (
     <Layout>
       <SEO
-        title="Contato | Corporação Assessoria Esportiva"
-        description={`Fale com a Corporação pelo WhatsApp ${siteSettings.contact.whatsappDisplay}. Treinos, planos e provas.`}
+        title="Contato | MovRun Club"
+        description={`Fale com a MovRun Club pelo WhatsApp ${siteSettings.contact.whatsappDisplay}. Treinos, planos e provas.`}
       />
 
       {/* HERO */}
@@ -108,7 +108,7 @@ const Contato = () => {
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="brand" size="lg" className="rounded-full">
                 <a
-                  href={whatsappLink("Olá! Quero saber mais sobre os treinos da Corporação.")}
+                  href={whatsappLink("Olá! Quero saber mais sobre os treinos do MovRun Club.")}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -149,12 +149,12 @@ const Contato = () => {
             <div className="relative aspect-[3/4] rounded-[1.75rem] overflow-hidden border border-white/10 shadow-brand">
               <img
                 src={siteSettings.images?.contato || coachesDuo}
-                alt="Treino da equipe Corporação com Lucas e Helô"
+                alt="Treino da equipe MovRun Club com Lucas e Helô"
                 className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <a
-                href={whatsappLink("Olá Lucas e Helô! Vim pelo site da Corporação.")}
+                href={whatsappLink("Olá Lucas e Helô! Vim pelo site do MovRun Club.")}
                 target="_blank"
                 rel="noreferrer"
                 className="group absolute bottom-5 left-5 right-5 flex items-center justify-between gap-3 p-3 pl-4 rounded-2xl bg-white/[0.06] border border-white/15 backdrop-blur-md hover:bg-white/[0.10] hover:border-success/40 transition-all"

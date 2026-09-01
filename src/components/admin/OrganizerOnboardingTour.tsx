@@ -23,7 +23,7 @@ const steps = [
   {
     icon: Rocket,
     title: "Tudo pronto para começar",
-    text: "Crie sua primeira prova e acompanhe as inscrições chegando. Conte com a Corporação no suporte.",
+    text: "Crie sua primeira prova e acompanhe as inscrições chegando. Conte com a MovRun Club no suporte.",
   },
 ];
 

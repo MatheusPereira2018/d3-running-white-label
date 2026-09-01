@@ -9,7 +9,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { PLAN_CATEGORIES, type PlanCategory } from "@/data/plans";
 import { whatsappLink } from "@/data/settings";
 import { cn } from "@/lib/utils";
-import logoCorporacao from "@/assets/logo-corporacao.png";
 
 const DEFAULT_TAB: PlanCategory = "corrida";
 
@@ -107,7 +106,7 @@ export const PlansHomeSection = () => {
                 <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-brand">Incluso em todos os planos</span>
               </div>
               <h4 className="mt-1 font-display text-base md:text-lg font-semibold text-foreground">
-                Clube de Benefícios Corporação
+                Clube de Benefícios MovRun Club
               </h4>
               <p className="text-[13px] text-muted-foreground leading-relaxed">
                 Cupons e descontos exclusivos com parceiros selecionados: viagens, suplementação, equipamentos e mais.
@@ -130,7 +129,7 @@ export const PlansHomeSection = () => {
           <div className="mt-7 flex flex-wrap gap-3 justify-center items-center">
             <Button asChild variant="brand" size="lg" className="rounded-full px-7">
               <a
-                href={whatsappLink("Olá! Quero falar com o professor sobre os planos da Corporação.")}
+                href={whatsappLink("Olá! Quero falar com o professor sobre os planos do MovRun Club.")}
                 target="_blank"
                 rel="noreferrer"
               >

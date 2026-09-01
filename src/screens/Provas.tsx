@@ -26,7 +26,7 @@ const Provas = () => {
   return (
     <Layout>
       <SEO
-        title="Provas e eventos | PACE Assessoria"
+        title="Provas e eventos | MovRun Club"
         description="Próximas provas e corridas de rua. Confira datas, distâncias e links de inscrição."
       />
       <PageHero

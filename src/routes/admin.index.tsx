@@ -4,7 +4,7 @@ import AdminDashboard from "@/screens/admin/AdminDashboard";
 export const Route = createFileRoute("/admin/")({
   head: () => ({
     meta: [
-      { title: "Painel — Admin Corporação" },
+      { title: "Painel — Admin MovRun" },
       { name: "robots", content: "noindex" },
     ],
   }),

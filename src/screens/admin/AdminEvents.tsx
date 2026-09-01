@@ -74,7 +74,7 @@ const AdminEvents = () => {
   const [ownership, setOwnership] = useState<"all" | "corp" | "external">("all");
   const [orgFilter, setOrgFilter] = useState<string>(searchParams.get("organizer") || "all");
 
-  // Provas da "Corporação": sem organizer_id ou vinculadas à organização principal
+  // Provas da "MovRun Club": sem organizer_id ou vinculadas à organização principal
   const isCorpEvent = (organizerId?: string | null) => {
     if (!organizerId) return true;
     return isMainOrg(stats.organizerMap.get(organizerId)?.name);
@@ -240,7 +240,7 @@ const AdminEvents = () => {
 
       {isAdmin && (
         <div className="mt-5 flex flex-wrap items-center gap-2">
-          {([["all", "Todas"], ["corp", "Corporação"], ["external", "Organizadores externos"]] as const).map(([k, label]) => (
+          {([["all", "Todas"], ["corp", "MovRun Club"], ["external", "Organizadores externos"]] as const).map(([k, label]) => (
             <button
               key={k}
               type="button"
@@ -261,7 +261,7 @@ const AdminEvents = () => {
             <option value="all">
               {ownership === "external" ? "Todos os parceiros" : "Todos os organizadores"}
             </option>
-            {ownership !== "external" && <option value="corp">Corporação</option>}
+            {ownership !== "external" && <option value="corp">MovRun Club</option>}
             {(ownership === "external" ? partnerOrganizers : stats.organizers).map((o) => (
               <option key={o.id} value={o.id}>{o.name}</option>
             ))}
@@ -298,7 +298,7 @@ const AdminEvents = () => {
                         corp ? "bg-brand/15 text-brand" : "bg-blue-500/10 text-blue-600 dark:text-blue-400"
                       )}
                     >
-                      {corp ? "Corporação" : "Organizador externo"}
+                      {corp ? "MovRun Club" : "Organizador externo"}
                     </span>
                     <span
                       className={cn(

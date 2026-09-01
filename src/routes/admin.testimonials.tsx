@@ -4,7 +4,7 @@ import AdminTestimonials from "@/screens/admin/AdminTestimonials";
 export const Route = createFileRoute("/admin/testimonials")({
   head: () => ({
     meta: [
-      { title: "Depoimentos — Admin Corporação" },
+      { title: "Depoimentos — Admin MovRun" },
       { name: "robots", content: "noindex" },
     ],
   }),

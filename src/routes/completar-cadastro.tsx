@@ -6,7 +6,7 @@ export const Route = createFileRoute("/completar-cadastro")({
   head: () => ({
     meta: buildMeta({
       title: "Completar cadastro",
-      description: "Finalize seu cadastro na Corporação Assessoria Esportiva.",
+      description: "Finalize seu cadastro na MovRun Club.",
       path: "/completar-cadastro",
     }),
   }),

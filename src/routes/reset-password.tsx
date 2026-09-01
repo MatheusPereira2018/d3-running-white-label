@@ -6,7 +6,7 @@ export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: buildMeta({
       title: "Redefinir senha",
-      description: "Redefina a senha da sua conta na Corporação Assessoria Esportiva.",
+      description: "Redefina a senha da sua conta na MovRun Club.",
       path: "/reset-password",
     }),
   }),

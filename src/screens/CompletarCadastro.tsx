@@ -123,7 +123,7 @@ const CompletarCadastro = () => {
   return (
     <Layout>
       <SEO
-        title="Complete seu cadastro | Corporação Assessoria"
+        title="Complete seu cadastro | MovRun Club"
         description="Finalize seu cadastro para se inscrever em provas e treinos."
       />
       <section className="section-padding pt-32">

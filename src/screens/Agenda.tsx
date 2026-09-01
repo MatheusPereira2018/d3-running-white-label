@@ -7,7 +7,7 @@ const Agenda = () => {
   return (
     <Layout>
       <SEO
-        title="Agenda de treinos e provas | Corporação Assessoria"
+        title="Agenda de treinos e provas | MovRun Club"
         description="Veja em um só lugar todos os treinos da equipe e as próximas provas no calendário do mês."
       />
       <PageHero
