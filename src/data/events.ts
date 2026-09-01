@@ -45,9 +45,20 @@ export type RaceEvent = {
   coupons?: EventCoupon[];
 };
 
+const stock = (id: string, w = 1200) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+
+const eventImages = [
+  stock("1552674605-db6ffd4facb5"),
+  stock("1461896836934-ffe607ba8211"),
+  stock("1476480862126-209bfaa8edc8"),
+  stock("1486218119243-13883505764c"),
+];
+
 export const events: RaceEvent[] = [
   {
     id: "e1",
+    image: eventImages[0],
     name: "Maratona Internacional de São Paulo",
     date: "2025-06-15",
     city: "São Paulo, SP",
@@ -59,6 +70,7 @@ export const events: RaceEvent[] = [
   },
   {
     id: "e2",
+    image: eventImages[1],
     name: "Corrida da Avenida Paulista",
     date: "2025-07-20",
     city: "São Paulo, SP",
@@ -70,6 +82,7 @@ export const events: RaceEvent[] = [
   },
   {
     id: "e3",
+    image: eventImages[2],
     name: "Meia Maratona do Rio",
     date: "2025-08-10",
     city: "Rio de Janeiro, RJ",
@@ -81,6 +94,7 @@ export const events: RaceEvent[] = [
   },
   {
     id: "e4",
+    image: eventImages[3],
     name: "Trail Run Serra da Cantareira",
     date: "2025-04-12",
     city: "Mairiporã, SP",

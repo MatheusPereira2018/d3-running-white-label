@@ -2,6 +2,9 @@
 // GALERIA DE FOTOS
 // Adicione novas imagens importando do diretório src/assets
 // ============================================================
+import groupPhoto from "@/assets/movrun-group.png.asset.json";
+import treinaoPhoto from "@/assets/movrun-treinao.png.asset.json";
+import runnerPhoto from "@/assets/movrun-runner.png.asset.json";
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g3 from "@/assets/gallery-3.jpg";
@@ -17,6 +20,9 @@ export type GalleryItem = {
 };
 
 export const gallery: GalleryItem[] = [
+  { id: "mv1", src: groupPhoto.url, title: "Treinao da comunidade", category: "Comunidade" },
+  { id: "mv2", src: treinaoPhoto.url, title: "Treinao Corre Liber", category: "Treinos" },
+  { id: "mv3", src: runnerPhoto.url, title: "Rua e nosso territorio", category: "Provas" },
   { id: "g1", src: g1, title: "Linha de chegada", category: "Provas" },
   { id: "g2", src: g2, title: "Treino de pista", category: "Treinos" },
   { id: "g3", src: g3, title: "Vitória em equipe", category: "Comunidade" },
