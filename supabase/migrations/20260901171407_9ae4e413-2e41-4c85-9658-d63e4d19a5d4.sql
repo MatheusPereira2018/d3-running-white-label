@@ -1,0 +1,4 @@
+CREATE POLICY "Public read site bucket" ON storage.objects FOR SELECT USING (bucket_id = 'corporacao-bucket');
+CREATE POLICY "Admins upload site bucket" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id = 'corporacao-bucket' AND public.has_role(auth.uid(),'admin'));
+CREATE POLICY "Admins update site bucket" ON storage.objects FOR UPDATE TO authenticated USING (bucket_id = 'corporacao-bucket' AND public.has_role(auth.uid(),'admin'));
+CREATE POLICY "Admins delete site bucket" ON storage.objects FOR DELETE TO authenticated USING (bucket_id = 'corporacao-bucket' AND public.has_role(auth.uid(),'admin'));

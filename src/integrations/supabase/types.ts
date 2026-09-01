@@ -14,96 +14,67 @@ export type Database = {
   }
   public: {
     Tables: {
-      event_payment_details: {
-        Row: {
-          event_id: string
-          payment_instructions: string
-          pix_key: string
-          pix_recipient: string
-          updated_at: string
-        }
-        Insert: {
-          event_id: string
-          payment_instructions?: string
-          pix_key?: string
-          pix_recipient?: string
-          updated_at?: string
-        }
-        Update: {
-          event_id?: string
-          payment_instructions?: string
-          pix_key?: string
-          pix_recipient?: string
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "event_payment_details_event_id_fkey"
-            columns: ["event_id"]
-            isOneToOne: true
-            referencedRelation: "events"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       event_signups: {
         Row: {
-          accepted_event_terms_at: string | null
+          amount: number | null
           category: string
-          participant_full_name?: string | null
-          participant_cpf?: string | null
-          participant_birth_date?: string | null
-          participant_gender?: string | null
-          participant_phone?: string | null
-          shirt_size?: string | null
-          coupon_code: string
+          coupon_code: string | null
           created_at: string
           event_id: string
           id: string
-          kit_option: string
+          kit_option: string | null
           notes: string
+          participant_birth_date: string | null
+          participant_cpf: string | null
+          participant_full_name: string | null
+          participant_gender: string | null
+          participant_id: string | null
+          participant_phone: string | null
+          shirt_size: string | null
           status: string
-          team_name: string
+          team_name: string | null
           updated_at: string
           user_id: string
         }
         Insert: {
-          accepted_event_terms_at?: string | null
+          amount?: number | null
           category?: string
-          participant_full_name?: string | null
-          participant_cpf?: string | null
-          participant_birth_date?: string | null
-          participant_gender?: string | null
-          participant_phone?: string | null
-          shirt_size?: string | null
-          coupon_code?: string
+          coupon_code?: string | null
           created_at?: string
           event_id: string
           id?: string
-          kit_option?: string
+          kit_option?: string | null
           notes?: string
+          participant_birth_date?: string | null
+          participant_cpf?: string | null
+          participant_full_name?: string | null
+          participant_gender?: string | null
+          participant_id?: string | null
+          participant_phone?: string | null
+          shirt_size?: string | null
           status?: string
-          team_name?: string
+          team_name?: string | null
           updated_at?: string
           user_id: string
         }
         Update: {
-          accepted_event_terms_at?: string | null
+          amount?: number | null
           category?: string
-          participant_full_name?: string | null
-          participant_cpf?: string | null
-          participant_birth_date?: string | null
-          participant_gender?: string | null
-          participant_phone?: string | null
-          shirt_size?: string | null
-          coupon_code?: string
+          coupon_code?: string | null
           created_at?: string
           event_id?: string
           id?: string
-          kit_option?: string
+          kit_option?: string | null
           notes?: string
+          participant_birth_date?: string | null
+          participant_cpf?: string | null
+          participant_full_name?: string | null
+          participant_gender?: string | null
+          participant_id?: string | null
+          participant_phone?: string | null
+          shirt_size?: string | null
           status?: string
-          team_name?: string
+          team_name?: string | null
           updated_at?: string
           user_id?: string
         }
@@ -115,16 +86,22 @@ export type Database = {
             referencedRelation: "events"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "event_signups_participant_id_fkey"
+            columns: ["participant_id"]
+            isOneToOne: false
+            referencedRelation: "participants"
+            referencedColumns: ["id"]
+          },
         ]
       }
       events: {
         Row: {
           active: boolean
           age_brackets: Json
+          banner_aspect_ratio: string | null
           banner_image: string | null
-          banner_mobile_image?: string | null
-          banner_aspect_ratio?: string | null
-          card_image_position: string
+          banner_mobile_image: string | null
           city: string
           coupons: Json
           created_at: string
@@ -133,66 +110,32 @@ export type Database = {
           distance: string
           distances: Json
           documents: Json
-          event_terms: string
-          genders: string[]
+          event_terms: string | null
+          genders: Json
           id: string
           image: string | null
           internal_signup: boolean
-          kit_delivery: string
-          kit_info: string
+          kit_delivery: string | null
+          kit_info: string | null
           kit_options: Json
           max_slots: number | null
-          more_info: string
+          more_info: string | null
           name: string
+          organizer_id: string | null
           registration_deadline: string | null
           registration_url: string
-          regulation_url: string
+          regulation_url: string | null
           sort_order: number
-          start_time: string
+          start_time: string | null
           status: string
           updated_at: string
         }
         Insert: {
           active?: boolean
           age_brackets?: Json
+          banner_aspect_ratio?: string | null
           banner_image?: string | null
           banner_mobile_image?: string | null
-          banner_aspect_ratio?: string | null
-          card_image_position?: string
-          city: string
-          coupons?: Json
-          created_at?: string
-          date: string
-          description?: string
-          distance?: string
-          distances?: Json
-          documents?: Json
-          event_terms?: string
-          genders?: string[]
-          id?: string
-          image?: string | null
-          internal_signup?: boolean
-          kit_delivery?: string
-          kit_info?: string
-          kit_options?: Json
-          max_slots?: number | null
-          more_info?: string
-          name: string
-          registration_deadline?: string | null
-          registration_url?: string
-          regulation_url?: string
-          sort_order?: number
-          start_time?: string
-          status?: string
-          updated_at?: string
-        }
-        Update: {
-          active?: boolean
-          age_brackets?: Json
-          banner_image?: string | null
-          banner_mobile_image?: string | null
-          banner_aspect_ratio?: string | null
-          card_image_position?: string
           city?: string
           coupons?: Json
           created_at?: string
@@ -201,26 +144,69 @@ export type Database = {
           distance?: string
           distances?: Json
           documents?: Json
-          event_terms?: string
-          genders?: string[]
+          event_terms?: string | null
+          genders?: Json
           id?: string
           image?: string | null
           internal_signup?: boolean
-          kit_delivery?: string
-          kit_info?: string
+          kit_delivery?: string | null
+          kit_info?: string | null
           kit_options?: Json
           max_slots?: number | null
-          more_info?: string
-          name?: string
+          more_info?: string | null
+          name: string
+          organizer_id?: string | null
           registration_deadline?: string | null
           registration_url?: string
-          regulation_url?: string
+          regulation_url?: string | null
           sort_order?: number
-          start_time?: string
+          start_time?: string | null
           status?: string
           updated_at?: string
         }
-        Relationships: []
+        Update: {
+          active?: boolean
+          age_brackets?: Json
+          banner_aspect_ratio?: string | null
+          banner_image?: string | null
+          banner_mobile_image?: string | null
+          city?: string
+          coupons?: Json
+          created_at?: string
+          date?: string
+          description?: string
+          distance?: string
+          distances?: Json
+          documents?: Json
+          event_terms?: string | null
+          genders?: Json
+          id?: string
+          image?: string | null
+          internal_signup?: boolean
+          kit_delivery?: string | null
+          kit_info?: string | null
+          kit_options?: Json
+          max_slots?: number | null
+          more_info?: string | null
+          name?: string
+          organizer_id?: string | null
+          registration_deadline?: string | null
+          registration_url?: string
+          regulation_url?: string | null
+          sort_order?: number
+          start_time?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "events_organizer_id_fkey"
+            columns: ["organizer_id"]
+            isOneToOne: false
+            referencedRelation: "organizers"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       faqs: {
         Row: {
@@ -232,7 +218,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
-          answer: string
+          answer?: string
           created_at?: string
           id?: string
           question: string
@@ -288,8 +274,8 @@ export type Database = {
           eyebrow: string
           id: string
           image: string
-          image_fit: string
-          image_position: string
+          image_fit: string | null
+          image_position: string | null
           sort_order: number
           subtitle: string
           title: string
@@ -303,8 +289,8 @@ export type Database = {
           eyebrow?: string
           id?: string
           image?: string
-          image_fit?: string
-          image_position?: string
+          image_fit?: string | null
+          image_position?: string | null
           sort_order?: number
           subtitle?: string
           title?: string
@@ -318,11 +304,80 @@ export type Database = {
           eyebrow?: string
           id?: string
           image?: string
-          image_fit?: string
-          image_position?: string
+          image_fit?: string | null
+          image_position?: string | null
           sort_order?: number
           subtitle?: string
           title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      organizers: {
+        Row: {
+          commission_percentage: number
+          created_at: string
+          id: string
+          name: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          commission_percentage?: number
+          created_at?: string
+          id?: string
+          name: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          commission_percentage?: number
+          created_at?: string
+          id?: string
+          name?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      participants: {
+        Row: {
+          birth_date: string | null
+          cpf: string | null
+          created_at: string
+          full_name: string
+          gender: string | null
+          id: string
+          owner_user_id: string
+          phone: string | null
+          relationship: string | null
+          updated_at: string
+        }
+        Insert: {
+          birth_date?: string | null
+          cpf?: string | null
+          created_at?: string
+          full_name: string
+          gender?: string | null
+          id?: string
+          owner_user_id: string
+          phone?: string | null
+          relationship?: string | null
+          updated_at?: string
+        }
+        Update: {
+          birth_date?: string | null
+          cpf?: string | null
+          created_at?: string
+          full_name?: string
+          gender?: string | null
+          id?: string
+          owner_user_id?: string
+          phone?: string | null
+          relationship?: string | null
           updated_at?: string
         }
         Relationships: []
@@ -353,7 +408,7 @@ export type Database = {
           description?: string
           featured?: boolean
           id?: string
-          logo: string
+          logo?: string
           name: string
           sort_order?: number
           tier?: string
@@ -383,7 +438,7 @@ export type Database = {
           active: boolean
           cover_image: string | null
           created_at: string
-          date: string | null
+          date: string
           description: string
           id: string
           location: string
@@ -397,7 +452,7 @@ export type Database = {
           active?: boolean
           cover_image?: string | null
           created_at?: string
-          date?: string | null
+          date?: string
           description?: string
           id?: string
           location?: string
@@ -411,7 +466,7 @@ export type Database = {
           active?: boolean
           cover_image?: string | null
           created_at?: string
-          date?: string | null
+          date?: string
           description?: string
           id?: string
           location?: string
@@ -588,201 +643,189 @@ export type Database = {
         }
         Relationships: []
       }
-      site_payment_settings: {
-        Row: {
-          id: string
-          product_payment_instructions: string
-          product_pix_key: string
-          product_pix_recipient: string
-          updated_at: string
-        }
-        Insert: {
-          id?: string
-          product_payment_instructions?: string
-          product_pix_key?: string
-          product_pix_recipient?: string
-          updated_at?: string
-        }
-        Update: {
-          id?: string
-          product_payment_instructions?: string
-          product_pix_key?: string
-          product_pix_recipient?: string
-          updated_at?: string
-        }
-        Relationships: []
-      }
       site_settings: {
         Row: {
-          brand_description: string
-          brand_name: string
-          brand_short: string
-          brand_slogan: string
-          contact_email: string
-          contact_instagram: string
-          contact_instagram_handle: string
-          contact_region: string
-          contact_strava: string
-          contact_whatsapp: string
-          contact_whatsapp_display: string
-          contato_image: string
-          cta_final_button: string
-          cta_final_subtitle: string
-          cta_final_title: string
-          hero_eyebrow: string
-          hero_image: string
-          hero_primary_cta: string
-          hero_secondary_cta: string
-          hero_stat_1_label: string
-          hero_stat_1_value: string
-          hero_stat_2_label: string
-          hero_stat_2_value: string
-          hero_stat_3_label: string
-          hero_stat_3_value: string
-          hero_subtitle: string
-          hero_title: string
-          hero_title_accent: string
-          home_benefit_image_1: string
-          home_benefit_image_2: string
-          home_benefit_image_3: string
-          home_benefit_image_4: string
-          home_benefit_image_5: string
-          home_benefit_image_6: string
-          home_intro_image: string
-          home_team_avatar_1: string
-          home_team_avatar_2: string
-          home_team_avatar_3: string
-          home_team_avatar_4: string
+          brand_description: string | null
+          brand_name: string | null
+          brand_short: string | null
+          brand_slogan: string | null
+          contact_email: string | null
+          contact_instagram: string | null
+          contact_instagram_handle: string | null
+          contact_region: string | null
+          contact_strava: string | null
+          contact_whatsapp: string | null
+          contact_whatsapp_display: string | null
+          contato_image: string | null
+          created_at: string
+          cta_final_button: string | null
+          cta_final_subtitle: string | null
+          cta_final_title: string | null
+          hero_eyebrow: string | null
+          hero_image: string | null
+          hero_primary_cta: string | null
+          hero_secondary_cta: string | null
+          hero_stat_1_label: string | null
+          hero_stat_1_value: string | null
+          hero_stat_2_label: string | null
+          hero_stat_2_value: string | null
+          hero_stat_3_label: string | null
+          hero_stat_3_value: string | null
+          hero_subtitle: string | null
+          hero_title: string | null
+          hero_title_accent: string | null
+          home_benefit_image_1: string | null
+          home_benefit_image_2: string | null
+          home_benefit_image_3: string | null
+          home_benefit_image_4: string | null
+          home_benefit_image_5: string | null
+          home_benefit_image_6: string | null
+          home_intro_image: string | null
+          home_team_avatar_1: string | null
+          home_team_avatar_2: string | null
+          home_team_avatar_3: string | null
+          home_team_avatar_4: string | null
           id: string
-          pathway_1_image: string
-          pathway_2_image: string
-          pathway_3_image: string
-          sobre_coach_1_image: string
-          sobre_coach_2_image: string
-          sobre_gallery_1: string
-          sobre_gallery_2: string
-          sobre_gallery_3: string
-          sobre_main_image: string
-          sobre_races_image: string
-          training_banner_aspect: string
-          trainingpeaks_app_image: string
-          trainingpeaks_hero_image: string
+          pathway_1_image: string | null
+          pathway_2_image: string | null
+          pathway_3_image: string | null
+          product_payment_instructions: string | null
+          product_pix_key: string | null
+          product_pix_recipient: string | null
+          sobre_coach_1_image: string | null
+          sobre_coach_2_image: string | null
+          sobre_gallery_1: string | null
+          sobre_gallery_2: string | null
+          sobre_gallery_3: string | null
+          sobre_main_image: string | null
+          sobre_races_image: string | null
+          training_banner_aspect: string | null
+          trainingpeaks_app_image: string | null
+          trainingpeaks_hero_image: string | null
           updated_at: string
-          welcome_image: string
+          welcome_image: string | null
         }
         Insert: {
-          brand_description?: string
-          brand_name?: string
-          brand_short?: string
-          brand_slogan?: string
-          contact_email?: string
-          contact_instagram?: string
-          contact_instagram_handle?: string
-          contact_region?: string
-          contact_strava?: string
-          contact_whatsapp?: string
-          contact_whatsapp_display?: string
-          contato_image?: string
-          cta_final_button?: string
-          cta_final_subtitle?: string
-          cta_final_title?: string
-          hero_eyebrow?: string
-          hero_image?: string
-          hero_primary_cta?: string
-          hero_secondary_cta?: string
-          hero_stat_1_label?: string
-          hero_stat_1_value?: string
-          hero_stat_2_label?: string
-          hero_stat_2_value?: string
-          hero_stat_3_label?: string
-          hero_stat_3_value?: string
-          hero_subtitle?: string
-          hero_title?: string
-          hero_title_accent?: string
-          home_benefit_image_1?: string
-          home_benefit_image_2?: string
-          home_benefit_image_3?: string
-          home_benefit_image_4?: string
-          home_benefit_image_5?: string
-          home_benefit_image_6?: string
-          home_intro_image?: string
-          home_team_avatar_1?: string
-          home_team_avatar_2?: string
-          home_team_avatar_3?: string
-          home_team_avatar_4?: string
+          brand_description?: string | null
+          brand_name?: string | null
+          brand_short?: string | null
+          brand_slogan?: string | null
+          contact_email?: string | null
+          contact_instagram?: string | null
+          contact_instagram_handle?: string | null
+          contact_region?: string | null
+          contact_strava?: string | null
+          contact_whatsapp?: string | null
+          contact_whatsapp_display?: string | null
+          contato_image?: string | null
+          created_at?: string
+          cta_final_button?: string | null
+          cta_final_subtitle?: string | null
+          cta_final_title?: string | null
+          hero_eyebrow?: string | null
+          hero_image?: string | null
+          hero_primary_cta?: string | null
+          hero_secondary_cta?: string | null
+          hero_stat_1_label?: string | null
+          hero_stat_1_value?: string | null
+          hero_stat_2_label?: string | null
+          hero_stat_2_value?: string | null
+          hero_stat_3_label?: string | null
+          hero_stat_3_value?: string | null
+          hero_subtitle?: string | null
+          hero_title?: string | null
+          hero_title_accent?: string | null
+          home_benefit_image_1?: string | null
+          home_benefit_image_2?: string | null
+          home_benefit_image_3?: string | null
+          home_benefit_image_4?: string | null
+          home_benefit_image_5?: string | null
+          home_benefit_image_6?: string | null
+          home_intro_image?: string | null
+          home_team_avatar_1?: string | null
+          home_team_avatar_2?: string | null
+          home_team_avatar_3?: string | null
+          home_team_avatar_4?: string | null
           id?: string
-          pathway_1_image?: string
-          pathway_2_image?: string
-          pathway_3_image?: string
-          sobre_coach_1_image?: string
-          sobre_coach_2_image?: string
-          sobre_gallery_1?: string
-          sobre_gallery_2?: string
-          sobre_gallery_3?: string
-          sobre_main_image?: string
-          sobre_races_image?: string
-          training_banner_aspect?: string
-          trainingpeaks_app_image?: string
-          trainingpeaks_hero_image?: string
+          pathway_1_image?: string | null
+          pathway_2_image?: string | null
+          pathway_3_image?: string | null
+          product_payment_instructions?: string | null
+          product_pix_key?: string | null
+          product_pix_recipient?: string | null
+          sobre_coach_1_image?: string | null
+          sobre_coach_2_image?: string | null
+          sobre_gallery_1?: string | null
+          sobre_gallery_2?: string | null
+          sobre_gallery_3?: string | null
+          sobre_main_image?: string | null
+          sobre_races_image?: string | null
+          training_banner_aspect?: string | null
+          trainingpeaks_app_image?: string | null
+          trainingpeaks_hero_image?: string | null
           updated_at?: string
-          welcome_image?: string
+          welcome_image?: string | null
         }
         Update: {
-          brand_description?: string
-          brand_name?: string
-          brand_short?: string
-          brand_slogan?: string
-          contact_email?: string
-          contact_instagram?: string
-          contact_instagram_handle?: string
-          contact_region?: string
-          contact_strava?: string
-          contact_whatsapp?: string
-          contact_whatsapp_display?: string
-          contato_image?: string
-          cta_final_button?: string
-          cta_final_subtitle?: string
-          cta_final_title?: string
-          hero_eyebrow?: string
-          hero_image?: string
-          hero_primary_cta?: string
-          hero_secondary_cta?: string
-          hero_stat_1_label?: string
-          hero_stat_1_value?: string
-          hero_stat_2_label?: string
-          hero_stat_2_value?: string
-          hero_stat_3_label?: string
-          hero_stat_3_value?: string
-          hero_subtitle?: string
-          hero_title?: string
-          hero_title_accent?: string
-          home_benefit_image_1?: string
-          home_benefit_image_2?: string
-          home_benefit_image_3?: string
-          home_benefit_image_4?: string
-          home_benefit_image_5?: string
-          home_benefit_image_6?: string
-          home_intro_image?: string
-          home_team_avatar_1?: string
-          home_team_avatar_2?: string
-          home_team_avatar_3?: string
-          home_team_avatar_4?: string
+          brand_description?: string | null
+          brand_name?: string | null
+          brand_short?: string | null
+          brand_slogan?: string | null
+          contact_email?: string | null
+          contact_instagram?: string | null
+          contact_instagram_handle?: string | null
+          contact_region?: string | null
+          contact_strava?: string | null
+          contact_whatsapp?: string | null
+          contact_whatsapp_display?: string | null
+          contato_image?: string | null
+          created_at?: string
+          cta_final_button?: string | null
+          cta_final_subtitle?: string | null
+          cta_final_title?: string | null
+          hero_eyebrow?: string | null
+          hero_image?: string | null
+          hero_primary_cta?: string | null
+          hero_secondary_cta?: string | null
+          hero_stat_1_label?: string | null
+          hero_stat_1_value?: string | null
+          hero_stat_2_label?: string | null
+          hero_stat_2_value?: string | null
+          hero_stat_3_label?: string | null
+          hero_stat_3_value?: string | null
+          hero_subtitle?: string | null
+          hero_title?: string | null
+          hero_title_accent?: string | null
+          home_benefit_image_1?: string | null
+          home_benefit_image_2?: string | null
+          home_benefit_image_3?: string | null
+          home_benefit_image_4?: string | null
+          home_benefit_image_5?: string | null
+          home_benefit_image_6?: string | null
+          home_intro_image?: string | null
+          home_team_avatar_1?: string | null
+          home_team_avatar_2?: string | null
+          home_team_avatar_3?: string | null
+          home_team_avatar_4?: string | null
           id?: string
-          pathway_1_image?: string
-          pathway_2_image?: string
-          pathway_3_image?: string
-          sobre_coach_1_image?: string
-          sobre_coach_2_image?: string
-          sobre_gallery_1?: string
-          sobre_gallery_2?: string
-          sobre_gallery_3?: string
-          sobre_main_image?: string
-          sobre_races_image?: string
-          training_banner_aspect?: string
-          trainingpeaks_app_image?: string
-          trainingpeaks_hero_image?: string
+          pathway_1_image?: string | null
+          pathway_2_image?: string | null
+          pathway_3_image?: string | null
+          product_payment_instructions?: string | null
+          product_pix_key?: string | null
+          product_pix_recipient?: string | null
+          sobre_coach_1_image?: string | null
+          sobre_coach_2_image?: string | null
+          sobre_gallery_1?: string | null
+          sobre_gallery_2?: string | null
+          sobre_gallery_3?: string | null
+          sobre_main_image?: string | null
+          sobre_races_image?: string | null
+          training_banner_aspect?: string | null
+          trainingpeaks_app_image?: string | null
+          trainingpeaks_hero_image?: string | null
           updated_at?: string
-          welcome_image?: string
+          welcome_image?: string | null
         }
         Relationships: []
       }
@@ -804,7 +847,7 @@ export type Database = {
           name: string
           role?: string
           sort_order?: number
-          text: string
+          text?: string
           updated_at?: string
         }
         Update: {
@@ -819,44 +862,6 @@ export type Database = {
         }
         Relationships: []
       }
-      training_signups: {
-        Row: {
-          created_at: string
-          email: string
-          full_name: string
-          id: string
-          notes: string
-          training_id: string
-          whatsapp: string
-        }
-        Insert: {
-          created_at?: string
-          email: string
-          full_name: string
-          id?: string
-          notes?: string
-          training_id: string
-          whatsapp: string
-        }
-        Update: {
-          created_at?: string
-          email?: string
-          full_name?: string
-          id?: string
-          notes?: string
-          training_id?: string
-          whatsapp?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "training_signups_training_id_fkey"
-            columns: ["training_id"]
-            isOneToOne: false
-            referencedRelation: "trainings"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       trainings: {
         Row: {
           active: boolean
@@ -865,7 +870,7 @@ export type Database = {
           date: string
           description: string
           id: string
-          image: string
+          image: string | null
           level: string
           location: string
           map_url: string | null
@@ -878,15 +883,15 @@ export type Database = {
           active?: boolean
           capacity?: number | null
           created_at?: string
-          date: string
+          date?: string
           description?: string
           id?: string
-          image?: string
+          image?: string | null
           level?: string
-          location: string
+          location?: string
           map_url?: string | null
           sort_order?: number
-          time: string
+          time?: string
           title: string
           updated_at?: string
         }
@@ -897,7 +902,7 @@ export type Database = {
           date?: string
           description?: string
           id?: string
-          image?: string
+          image?: string | null
           level?: string
           location?: string
           map_url?: string | null
@@ -918,7 +923,7 @@ export type Database = {
         Insert: {
           created_at?: string
           id?: string
-          role?: Database["public"]["Enums"]["app_role"]
+          role: Database["public"]["Enums"]["app_role"]
           user_id: string
         }
         Update: {
@@ -934,11 +939,6 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      count_event_signups: { Args: { _event_id: string }; Returns: number }
-      count_training_signups: {
-        Args: { _training_id: string }
-        Returns: number
-      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -960,7 +960,7 @@ export type Database = {
       }
     }
     Enums: {
-      app_role: "admin" | "user"
+      app_role: "admin" | "organizer" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -1088,7 +1088,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin", "user"],
+      app_role: ["admin", "organizer", "user"],
     },
   },
 } as const
