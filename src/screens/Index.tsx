@@ -168,7 +168,7 @@ const Index = () => {
               fetchPriority="high"
               decoding="sync"
               loading="eager"
-              className="absolute inset-0 w-full h-full object-cover object-[58%_72%] sm:object-[50%_68%] opacity-100 [filter:contrast(1.06)_saturate(1.06)_brightness(0.95)]"
+              className="absolute inset-0 w-full h-full object-cover object-[52%_58%] sm:object-[50%_55%] opacity-100 [filter:contrast(1.06)_saturate(1.06)_brightness(0.95)]"
               width={1920}
               height={1280}
             />
