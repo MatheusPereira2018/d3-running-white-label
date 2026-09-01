@@ -6,7 +6,7 @@ import { SEO } from "@/components/site/SEO";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { supabase } from "@/integrations/supabase/client";
+import { mockEventRows, mockEventSignups } from "@/data/mock";
 import { activeLote, currentPrice, formatBRL, isSeniorOnlyDistance } from "@/lib/eventPricing";
 import { LoteBreakdown } from "@/components/site/LoteBreakdown";
 import {
@@ -64,36 +64,29 @@ const ProvaDetalhe = () => {
   
 
   const { data: event, isLoading } = useQuery({
-    queryKey: ["event_detail", id],
+    queryKey: ["event_detail", id, "mock"],
     enabled: !!id,
-    queryFn: async () => {
-      const { data, error } = await supabase.from("events").select("*").eq("id", id!).maybeSingle();
-      if (error) throw error;
-      return data;
-    },
+    queryFn: async () => mockEventRows.find((e) => e.id === id) ?? null,
+    staleTime: Infinity,
   });
 
   // Lista pública: somente inscrições confirmadas (pendentes/canceladas não aparecem)
   const isPublicVisible = (s: PublicSignup) => s.status?.toLowerCase() === "confirmada";
 
+  const publicSignups = ((id ? mockEventSignups[id] : []) ?? []) as PublicSignup[];
+
   const { data: signupsCount = 0 } = useQuery({
-    queryKey: ["event_signups_count", id],
+    queryKey: ["event_signups_count", id, "mock"],
     enabled: !!id,
-    queryFn: async () => {
-      const { data, error } = await supabase.rpc("list_event_signups_public", { _event_id: id! });
-      if (error) return 0;
-      return (data ?? []).filter(isPublicVisible).length;
-    },
+    queryFn: async () => publicSignups.filter(isPublicVisible).length,
+    staleTime: Infinity,
   });
 
   const { data: signups = [], isLoading: loadingSignups } = useQuery({
-    queryKey: ["event_signups_public", id],
+    queryKey: ["event_signups_public", id, "mock"],
     enabled: !!id && listOpen,
-    queryFn: async (): Promise<PublicSignup[]> => {
-      const { data, error } = await supabase.rpc("list_event_signups_public", { _event_id: id! });
-      if (error) throw error;
-      return ((data ?? []) as PublicSignup[]).filter(isPublicVisible);
-    },
+    queryFn: async (): Promise<PublicSignup[]> => publicSignups.filter(isPublicVisible),
+    staleTime: Infinity,
   });
 
   if (isLoading)

@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/lib/router-compat";
 
-import { supabase } from "@/integrations/supabase/client";
+import { mockHomeHighlights } from "@/data/mock";
 
 type Highlight = {
   id: string;
@@ -19,17 +19,9 @@ type Highlight = {
 
 const useHomeHighlights = () =>
   useQuery({
-    queryKey: ["home_highlights"],
-    queryFn: async (): Promise<Highlight[]> => {
-      const { data, error } = await supabase
-        .from("home_highlights")
-        .select("*")
-        .eq("active", true)
-        .order("sort_order", { ascending: true });
-      if (error) throw error;
-      return (data ?? []) as Highlight[];
-    },
-    staleTime: 5 * 60 * 1000,
+    queryKey: ["home_highlights", "mock"],
+    queryFn: async (): Promise<Highlight[]> => mockHomeHighlights,
+    staleTime: Infinity,
   });
 
 const isExternal = (url: string) => /^(https?:)?\/\//.test(url) || url.startsWith("mailto:") || url.startsWith("tel:");

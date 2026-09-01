@@ -37,10 +37,10 @@ export const plans: Plan[] = [
       "Avaliação inicial completa",
       "Treinos em grupo 2x por semana",
       "Suporte via WhatsApp",
-      "Acesso à comunidade PACE",
+      "Acesso à comunidade MovRun",
       "Acesso a benefícios exclusivos em produtos esportivos",
     ],
-    ctaMessage: "Olá! Tenho interesse no plano Start da PACE.",
+    ctaMessage: "Olá! Tenho interesse no plano Start da MovRun.",
     categories: ["corrida"],
   },
   {
@@ -59,7 +59,7 @@ export const plans: Plan[] = [
       "Suporte prioritário",
       "Acesso a benefícios exclusivos em produtos esportivos",
     ],
-    ctaMessage: "Olá! Tenho interesse no plano Performance da PACE.",
+    ctaMessage: "Olá! Tenho interesse no plano Performance da MovRun.",
     categories: ["corrida", "completo"],
   },
   {
@@ -77,7 +77,7 @@ export const plans: Plan[] = [
       "Day-of-race com a equipe",
       "Acesso a benefícios exclusivos em produtos esportivos",
     ],
-    ctaMessage: "Olá! Tenho interesse no plano Elite da PACE.",
+    ctaMessage: "Olá! Tenho interesse no plano Elite da MovRun.",
     categories: ["completo", "fortalecimento"],
   },
 ];
