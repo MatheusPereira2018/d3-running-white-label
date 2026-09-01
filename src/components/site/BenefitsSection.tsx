@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { useSettings, useWhatsappLink } from "@/contexts/SettingsContext";
+import { brand } from "@/config/brand";
 import c1Asset from "@/assets/c1.jpg.asset.json";
 import c2Asset from "@/assets/c2.jpg.asset.json";
 import c3Asset from "@/assets/c3.jpg.asset.json";
@@ -48,9 +49,9 @@ export const BenefitsSection = () => {
 
       <div className="container-page relative">
         <SectionHeader
-          eyebrow="Por que Corporação"
+          eyebrow={`Por que ${brand.shortName}`}
           title="Tudo que você precisa pra evoluir."
-          subtitle="Planilha individual no app, coach acompanhando e a equipe junto uma vez por mês no Treinão."
+          subtitle="Comunidade, eventos e desafios que te colocam no ritmo certo."
         />
 
         {/* Mobile: carrossel horizontal */}
@@ -131,13 +132,11 @@ export const BenefitsSection = () => {
         <div className="mt-16 flex justify-center">
           <Button asChild variant="brand" size="lg" className="rounded-full px-7">
             <a
-              href={whatsappLink(
-                "Olá! Quero saber mais sobre os benefícios de fazer parte da Corporação."
-              )}
+              href={whatsappLink(brand.whatsappMessages.benefits)}
               target="_blank"
               rel="noreferrer"
             >
-              Quero fazer parte da equipe <ArrowRight className="w-4 h-4" />
+              Quero fazer parte <ArrowRight className="w-4 h-4" />
             </a>
           </Button>
         </div>

@@ -1,11 +1,12 @@
 import { Footprints } from "lucide-react";
 import { useWhatsappLink } from "@/contexts/SettingsContext";
+import { brand } from "@/config/brand";
 
 export const FloatingWhatsApp = () => {
   const whatsappLink = useWhatsappLink();
   return (
     <a
-      href={whatsappLink("Olá! Vim pelo site da Corporação Assessoria Esportiva.")}
+      href={whatsappLink(brand.whatsappMessages.default)}
       target="_blank"
       rel="noreferrer"
       aria-label="Fale com nossa equipe no WhatsApp"

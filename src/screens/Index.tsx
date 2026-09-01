@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Users, Target, HeartPulse, Trophy, Calendar, Camera, Clock, MapPin } from "lucide-react";
+import { ArrowRight, Users, Target, HeartPulse, Trophy, Calendar, Camera, Clock, MapPin, Flag, Route } from "lucide-react";
 import { Link } from "@/lib/router-compat";
 
 import { Button } from "@/components/ui/button";
@@ -31,25 +31,32 @@ import {
   useProducts,
   useTestimonials,
 } from "@/hooks/useContent";
-import heroAsset from "@/assets/hero-corporacao-portico.jpg.asset.json";
-const heroImg = heroAsset.url;
-import quemSomosBg from "@/assets/quem-somos-duo.jpg.asset.json";
-import avatarLucas from "@/assets/coach-lucas.jpg";
-import avatarHelo from "@/assets/coach-helo.jpg";
-import avatarDuo from "@/assets/coaches-duo.jpg";
-import avatarFund from "@/assets/fundadores.jpg";
+import { brand } from "@/config/brand";
 
 const benefits = [
-  { icon: Target, title: "Planilha individual", desc: "Feita pra você, no seu app." },
-  { icon: Users, title: "Treinão mensal", desc: "Uma vez por mês a equipe se encontra." },
-  { icon: HeartPulse, title: "Treino com segurança", desc: "Evoluir sem se machucar." },
-  { icon: Trophy, title: "Provas da região", desc: "Você por dentro do calendário." },
+  { icon: Target, title: "Corridas e eventos", desc: "Fique por dentro dos próximos encontros." },
+  { icon: Users, title: "Comunidade ativa", desc: "Pessoas que vivem o movimento com você." },
+  { icon: HeartPulse, title: "Desafios", desc: "Supere objetivos junto com a tribo." },
+  { icon: Trophy, title: "Sua jornada", desc: "Acompanhe sua evolução na plataforma." },
 ];
 
 const formatTreinaoDate = (iso: string) => {
   const d = new Date(iso + "T12:00:00");
   return d.toLocaleDateString("pt-BR", { weekday: "long", day: "2-digit", month: "long" });
 };
+
+const AvatarPlaceholder = ({ className }: { className?: string }) => (
+  <div
+    className={`flex items-center justify-center bg-brand/10 text-brand font-display font-semibold ${className}`}
+  >
+    {brand.shortName
+      .split(" ")
+      .map((w) => w[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase()}
+  </div>
+);
 
 const NextTreinaoCard = ({ training }: { training: Training }) => (
   <article className="relative bg-card border border-border/60 rounded-2xl overflow-hidden h-full flex flex-col">
@@ -120,6 +127,15 @@ const Index = () => {
     }
   };
 
+  const scrollToComunidade = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const el = document.getElementById("comunidade");
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   const [showStickyCta, setShowStickyCta] = useState(false);
   useEffect(() => {
     const onScroll = () => setShowStickyCta(window.scrollY > 420);
@@ -139,19 +155,28 @@ const Index = () => {
 
       {/* HERO */}
       <section className="relative min-h-[86svh] sm:min-h-[100svh] flex items-end overflow-hidden bg-[#070707]">
-        {/* Imagem de fundo: leve blur no mobile p/ legibilidade */}
+        {/* Imagem de fundo (quando configurada) ou gradiente decorativo */}
         <div className="absolute inset-0 overflow-hidden">
-          {(settingsLoaded || !siteSettings.hero.image) && (
+          {siteSettings.hero.image ? (
             <img
-              key={siteSettings.hero.image || "fallback-hero"}
-              src={siteSettings.hero.image || heroImg}
-              alt="Equipe da Corporação Assessoria Esportiva correndo em grupo"
+              key={siteSettings.hero.image}
+              src={siteSettings.hero.image}
+              alt={`Comunidade ${brand.shortName}`}
               fetchPriority="high"
               decoding="sync"
               loading="eager"
               className="absolute inset-0 w-full h-full object-cover object-[68%_center] animate-hero-zoom [filter:contrast(1.14)_saturate(1.04)_brightness(0.92)_blur(1.5px)] md:[filter:contrast(1.05)_saturate(1.08)] animate-fade-in"
               width={1920}
               height={1280}
+            />
+          ) : (
+            <div
+              aria-hidden
+              className="absolute inset-0 opacity-60"
+              style={{
+                background:
+                  "radial-gradient(circle at 20% 60%, hsl(var(--brand) / 0.12), transparent 55%), radial-gradient(circle at 80% 30%, hsl(var(--brand) / 0.08), transparent 50%), linear-gradient(135deg, hsl(0 0% 6%) 0%, hsl(0 0% 10%) 50%, hsl(0 0% 6%) 100%)",
+              }}
             />
           )}
         </div>
@@ -213,22 +238,24 @@ const Index = () => {
               <span className="absolute inset-0 rounded-full bg-brand animate-ping opacity-60" />
               <span className="relative w-1.5 h-1.5 rounded-full bg-brand" />
             </span>
-            São Paulo, BR
+            {brand.contact.city}, BR
           </div>
           <div className="text-[10px] tracking-[0.28em] uppercase text-white/35">
-            Pace 5ʹ20ʺ/km
+            {brand.shortName}
           </div>
         </div>
 
         <div className="container-page relative pt-20 sm:pt-32 pb-14 sm:pb-24 md:pb-28 z-10">
           <div className="relative max-w-2xl text-white animate-fade-up [animation-fill-mode:both]">
             {/* Selo lateral vertical (desktop) */}
-            <div className="hidden md:flex flex-col items-start gap-3 absolute -left-10 top-2 bottom-2">
-              <span className="text-[10px] font-semibold tracking-[0.32em] uppercase text-brand-glow [writing-mode:vertical-rl] rotate-180">
-                Est. 2017
-              </span>
-              <span className="flex-1 w-px bg-gradient-to-b from-brand/60 via-white/15 to-transparent" />
-            </div>
+            {brand.foundedYear && (
+              <div className="hidden md:flex flex-col items-start gap-3 absolute -left-10 top-2 bottom-2">
+                <span className="text-[10px] font-semibold tracking-[0.32em] uppercase text-brand-glow [writing-mode:vertical-rl] rotate-180">
+                  Est. {brand.foundedYear}
+                </span>
+                <span className="flex-1 w-px bg-gradient-to-b from-brand/60 via-white/15 to-transparent" />
+              </div>
+            )}
 
             {/* Eyebrow refinado */}
             <span className="inline-flex items-center gap-2.5 text-[10px] sm:text-[11px] font-semibold tracking-[0.28em] sm:tracking-[0.32em] uppercase text-white/70 mb-3.5 sm:mb-7">
@@ -258,7 +285,7 @@ const Index = () => {
                 size="lg"
                 className="rounded-full px-6 w-full sm:w-auto h-12 text-[14.5px] font-semibold shadow-[0_10px_28px_-10px_hsl(var(--brand)/0.55)] hover:shadow-[0_14px_36px_-10px_hsl(var(--brand)/0.7)] active:scale-[0.98] transition-all"
               >
-                <a href={whatsappLink("Olá! Quero treinar com a Corporação Assessoria Esportiva.")} target="_blank" rel="noreferrer">
+                <a href={whatsappLink(brand.whatsappMessages.hero)} target="_blank" rel="noreferrer">
                   {siteSettings.hero.primaryCta} <ArrowRight className="w-4 h-4" />
                 </a>
               </Button>
@@ -267,14 +294,14 @@ const Index = () => {
                 onClick={scrollToProvas}
                 className="md:hidden group inline-flex items-center justify-center sm:justify-start gap-1.5 h-10 sm:h-auto px-4 sm:px-0 rounded-full border border-white/15 sm:border-0 bg-white/[0.06] sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-0 text-[13px] sm:text-[13.5px] font-medium text-white/80 hover:text-white transition-colors"
               >
-                Ver próximas provas
+                Entrar para a comunidade
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
               <Link
                 to="/provas"
                 className="hidden md:inline-flex items-center justify-start gap-1.5 h-auto px-0 text-[13.5px] font-medium text-white/80 hover:text-white transition-colors group"
               >
-                Ver próximas provas
+                Explorar eventos
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
@@ -282,20 +309,15 @@ const Index = () => {
             {/* Prova social humana (mobile + desktop) */}
             <div className="mt-5 sm:mt-9 flex items-center gap-2.5 sm:gap-3">
               <div className="flex -space-x-2">
-                {[avatarLucas, avatarHelo, avatarDuo, avatarFund].map((fallback, i) => {
-                  const src = siteSettings.images?.homeTeamAvatars?.[i] || fallback;
-                  return (
-                    <div
-                      key={i}
-                      className="w-8 h-8 sm:w-8 sm:h-8 rounded-full border-2 border-black/60 overflow-hidden ring-1 ring-white/10"
-                    >
-                      <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
-                    </div>
-                  );
-                })}
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <AvatarPlaceholder
+                    key={i}
+                    className="w-8 h-8 sm:w-8 sm:h-8 rounded-full border-2 border-black/60 ring-1 ring-white/10 text-[10px]"
+                  />
+                ))}
               </div>
               <p className="text-[12.5px] sm:text-[13px] text-white/70 leading-snug">
-                <span className="text-white font-semibold">+120 atletas</span> treinando com a Corporação
+                <span className="text-white font-semibold">+1.200 pessoas</span> na comunidade {brand.shortName}
               </p>
             </div>
 
@@ -358,7 +380,7 @@ const Index = () => {
         >
           <div className="pointer-events-auto mx-auto max-w-xs">
             <a
-              href={whatsappLink("Olá! Quero treinar com a Corporação Assessoria Esportiva.")}
+              href={whatsappLink(brand.whatsappMessages.hero)}
               target="_blank"
               rel="noreferrer"
               className="flex items-center justify-center gap-1.5 w-full h-11 rounded-full bg-brand/95 backdrop-blur-md text-brand-foreground font-semibold text-[13.5px] shadow-[0_14px_36px_-12px_hsl(var(--brand)/0.7),0_0_0_1px_hsl(var(--brand)/0.3)] active:scale-[0.97] transition-transform"
@@ -366,6 +388,41 @@ const Index = () => {
               {siteSettings.hero.primaryCta}
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 3 PILARES DA COMUNIDADE */}
+      <section id="comunidade" className="relative section-padding bg-background border-b border-border/40">
+        <div className="container-page">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            <div className="group relative rounded-2xl border border-border/60 bg-card p-6 md:p-8 hover:border-brand/30 transition-colors">
+              <div className="mb-4 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand/10 text-brand ring-1 ring-brand/20">
+                <Flag className="w-5 h-5" />
+              </div>
+              <h3 className="font-display text-lg font-semibold">Corridas e eventos</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Encontre os próximos encontros e faça sua inscrição para correr junto com a comunidade.
+              </p>
+            </div>
+            <div className="group relative rounded-2xl border border-border/60 bg-card p-6 md:p-8 hover:border-brand/30 transition-colors">
+              <div className="mb-4 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand/10 text-brand ring-1 ring-brand/20">
+                <Users className="w-5 h-5" />
+              </div>
+              <h3 className="font-display text-lg font-semibold">Comunidade ativa</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Treinos, desafios, experiências e pessoas que vivem o movimento esportivo de rua.
+              </p>
+            </div>
+            <div className="group relative rounded-2xl border border-border/60 bg-card p-6 md:p-8 hover:border-brand/30 transition-colors">
+              <div className="mb-4 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-brand/10 text-brand ring-1 ring-brand/20">
+                <Route className="w-5 h-5" />
+              </div>
+              <h3 className="font-display text-lg font-semibold">Sua jornada</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Centralize suas inscrições e acompanhe sua história com a {brand.shortName}.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -426,20 +483,15 @@ const Index = () => {
             {/* Detalhe humano */}
             <div className="mt-9 flex items-center gap-3">
               <div className="flex -space-x-2.5">
-                {[avatarLucas, avatarHelo, avatarDuo, avatarFund].map((fallback, i) => {
-                  const src = siteSettings.images?.homeTeamAvatars?.[i] || fallback;
-                  return (
-                    <div
-                      key={i}
-                      className="w-9 h-9 rounded-full border-2 border-background overflow-hidden"
-                    >
-                      <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
-                    </div>
-                  );
-                })}
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <AvatarPlaceholder
+                    key={i}
+                    className="w-9 h-9 rounded-full border-2 border-background text-[11px]"
+                  />
+                ))}
               </div>
               <span className="text-xs sm:text-sm text-muted-foreground">
-                <span className="text-foreground font-semibold">+120</span> corredores fazem parte da equipe
+                <span className="text-foreground font-semibold">+1.200</span> pessoas fazem parte da comunidade
               </span>
             </div>
 
@@ -460,20 +512,36 @@ const Index = () => {
               style={{ background: "radial-gradient(circle at 30% 30%, hsl(var(--brand) / 0.3), transparent 60%)" }}
             />
             <div className="relative aspect-[4/5] rounded-[1.75rem] overflow-hidden border border-border/40">
-              <img
-                src={siteSettings.images?.homeIntro || quemSomosBg.url}
-                alt="Equipe Corporação na largada"
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[6000ms] hover:scale-[1.04]"
-              />
+              {siteSettings.images?.homeIntro ? (
+                <img
+                  src={siteSettings.images.homeIntro}
+                  alt={`Comunidade ${brand.shortName}`}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[6000ms] hover:scale-[1.04]"
+                />
+              ) : (
+                <div
+                  aria-hidden
+                  className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted to-background"
+                >
+                  <span className="text-5xl font-display font-bold tracking-tighter text-brand/20">
+                    {brand.shortName
+                      .split(" ")
+                      .map((w) => w[0])
+                      .join("")
+                      .slice(0, 2)
+                      .toUpperCase()}
+                  </span>
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3">
                 <div className="text-white">
-                  <p className="text-[10px] tracking-[0.3em] uppercase text-brand-glow">A equipe</p>
-                  <p className="font-display text-base font-semibold leading-tight">Treino real, gente real.</p>
+                  <p className="text-[10px] tracking-[0.3em] uppercase text-brand-glow">A comunidade</p>
+                  <p className="font-display text-base font-semibold leading-tight">Movimento real, gente real.</p>
                 </div>
                 <span className="text-[10px] tracking-[0.25em] uppercase px-2.5 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur text-white/80">
-                  São Paulo
+                  {brand.contact.city}
                 </span>
               </div>
             </div>
@@ -505,7 +573,7 @@ const Index = () => {
         <div className="container-page">
           <div className="flex flex-wrap gap-6 justify-between items-end mb-12">
             <SectionHeader
-              eyebrow="Loja Corporação"
+              eyebrow={`Loja ${brand.shortName}`}
               title="Vista a equipe"
               subtitle="Itens oficiais da nossa comunidade. Leve e treine com identidade."
               align="left"

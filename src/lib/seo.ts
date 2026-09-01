@@ -1,16 +1,17 @@
+import { brand } from "@/config/brand";
+
 /**
- * Identidade global de compartilhamento — Corporação Assessoria Esportiva.
+ * Identidade global de compartilhamento — white label via src/config/brand.ts.
  * Centraliza título, descrição e imagem de compartilhamento de todas as rotas
  * públicas, evitando qualquer metadata genérica/automática.
  */
 
-export const SITE_NAME = "Corporação Assessoria Esportiva";
-export const SITE_URL = "https://novacorporacao.lovable.app";
+export const SITE_NAME = brand.name;
+export const SITE_URL = "https://movrun-club.lovable.app";
 export const SITE_TITLE = SITE_NAME;
-export const SITE_DESCRIPTION =
-  "Assessoria de corrida: treinos, provas, planos e produtos da Corporação.";
-/** Asset oficial da Corporação (1200x630) usado como fallback de compartilhamento. */
-export const SITE_OG_IMAGE = `${SITE_URL}/og-corporacao.jpg`;
+export const SITE_DESCRIPTION = brand.description;
+/** Asset de compartilhamento fallback. Substitua por uma imagem real da marca quando disponível. */
+export const SITE_OG_IMAGE = "";
 
 export const absoluteUrl = (path = "/") => {
   if (!path) return SITE_URL;
@@ -32,7 +33,7 @@ type MetaInput = {
   type?: "website" | "article";
 };
 
-/** Gera o array de meta tags de uma rota, sempre com identidade da Corporação. */
+/** Gera o array de meta tags de uma rota, sempre com identidade da marca configurada. */
 export const buildMeta = ({
   title,
   description = SITE_DESCRIPTION,
@@ -44,7 +45,7 @@ export const buildMeta = ({
   const url = absoluteUrl(path);
   const ogImage = image ? absoluteUrl(image) : SITE_OG_IMAGE;
 
-  return [
+  const meta: Array<Record<string, string>> = [
     { title: fullTitle },
     { name: "description", content: description },
     { property: "og:site_name", content: SITE_NAME },
@@ -52,11 +53,16 @@ export const buildMeta = ({
     { property: "og:title", content: fullTitle },
     { property: "og:description", content: description },
     { property: "og:url", content: url },
-    { property: "og:image", content: ogImage },
     { property: "og:locale", content: "pt_BR" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: fullTitle },
     { name: "twitter:description", content: description },
-    { name: "twitter:image", content: ogImage },
   ];
+
+  if (ogImage) {
+    meta.push({ property: "og:image", content: ogImage });
+    meta.push({ name: "twitter:image", content: ogImage });
+  }
+
+  return meta;
 };
