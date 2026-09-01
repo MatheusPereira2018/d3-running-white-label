@@ -1,49 +1,45 @@
 // ============================================================
 // CONFIGURAÇÕES GLOBAIS DO SITE (fallback estático)
 // Os valores oficiais ficam no banco e podem ser editados em /admin.
+// Para a demonstração white label, a fonte primária é src/config/brand.ts
 // ============================================================
+
+import { brand } from "@/config/brand";
 
 export const siteSettings = {
   brand: {
-    name: "Corporação Assessoria Esportiva",
-    short: "Corporação",
-    slogan: "Treine com propósito. Corra com a tribo.",
-    description:
-      "Corporação Assessoria Esportiva: treinos personalizados, comunidade forte e resultados reais. Da primeira corrida à sua próxima maratona.",
+    name: brand.name,
+    short: brand.shortName,
+    slogan: brand.slogan,
+    description: brand.description,
   },
 
   contact: {
-    whatsapp: "5511999999999",
-    whatsappDisplay: "(11) 99999-9999",
-    email: "contato@corporacaoassessoria.com.br",
-    instagram: "https://instagram.com/corporacaoassessoria",
-    instagramHandle: "@corporacaoassessoria",
-    strava: "https://strava.com/clubs/corporacaoassessoria",
-    region: "São Paulo - Capital e Zona Sul",
+    whatsapp: brand.contact.whatsapp,
+    whatsappDisplay: brand.contact.whatsappDisplay,
+    email: brand.contact.email,
+    instagram: brand.contact.instagram,
+    instagramHandle: brand.contact.instagramHandle,
+    strava: brand.contact.strava,
+    region: brand.contact.region,
   },
 
   hero: {
-    eyebrow: "TREINO EM GRUPO • CORRIDA & EVOLUÇÃO",
-    title: "Você não treina sozinho.",
-    titleAccent: "Tem um time com você.",
-    subtitle:
-      "Treino em grupo, musculação integrada e acompanhamento de verdade para transformar sua rotina em resultado.",
+    eyebrow: brand.hero.eyebrow,
+    title: brand.hero.title,
+    titleAccent: brand.hero.titleAccent,
+    subtitle: brand.hero.subtitle,
 
-    primaryCta: "Quero fazer parte",
-    secondaryCta: "Conhecer planos",
-    image: "",
-    stats: [
-      { value: "500+", label: "atletas já passaram pela assessoria" },
-      { value: "8", label: "anos orientando corredores" },
-      { value: "200+", label: "provas mapeadas na região" },
-    ],
+    primaryCta: brand.hero.primaryCta,
+    secondaryCta: brand.hero.secondaryCta,
+    image: brand.hero.image,
+    stats: brand.hero.stats,
   },
 
   cta: {
-    finalTitle: "Pronto para a sua próxima passada?",
-    finalSubtitle:
-      "Agende uma avaliação gratuita e descubra como é ter uma planilha feita pra você, com coach acompanhando cada treino.",
-    finalButton: "Agendar avaliação gratuita",
+    finalTitle: brand.cta.finalTitle,
+    finalSubtitle: brand.cta.finalSubtitle,
+    finalButton: brand.cta.finalButton,
   },
 
   productPayment: {
@@ -55,7 +51,7 @@ export const siteSettings = {
   homeBenefitImages: ["", "", "", "", "", ""],
 
   images: {
-    homeIntro: "/__l5e/assets-v1/c35e59aa-3c12-41b2-aff5-edce0fec2495/quem-somos-duo.jpg",
+    homeIntro: "",
     homeTeamAvatars: ["", "", "", ""] as string[],
     sobreCoach1: "",
     sobreCoach2: "",

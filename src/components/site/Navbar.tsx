@@ -7,6 +7,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { cn } from "@/lib/utils";
 import { LogoMark } from "@/components/site/LogoMark";
 import { ThemeToggle } from "@/components/site/ThemeToggle";
+import { brand } from "@/config/brand";
 
 const navItems = [
   { to: "/", label: "Início" },
@@ -125,7 +126,7 @@ export const Navbar = () => {
             size="sm"
             className="rounded-full h-10 px-5 text-[13px] font-semibold tracking-tight shadow-[0_8px_24px_-10px_hsl(var(--brand)/0.6)] hover:shadow-[0_12px_30px_-10px_hsl(var(--brand)/0.8)] hover:-translate-y-px transition-all duration-300"
           >
-            <a href={whatsappLink("Olá! Quero conhecer a Corporação Assessoria Esportiva.")} target="_blank" rel="noreferrer">
+            <a href={whatsappLink(brand.whatsappMessages.nav)} target="_blank" rel="noreferrer">
               Fale conosco
             </a>
           </Button>
@@ -189,7 +190,7 @@ export const Navbar = () => {
               </Button>
             )}
             <Button asChild variant="brand" size="lg" className="mt-2">
-              <a href={whatsappLink("Olá! Quero conhecer a Corporação Assessoria Esportiva.")} target="_blank" rel="noreferrer">
+              <a href={whatsappLink(brand.whatsappMessages.nav)} target="_blank" rel="noreferrer">
                 Fale no WhatsApp
               </a>
             </Button>

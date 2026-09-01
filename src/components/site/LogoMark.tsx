@@ -1,4 +1,4 @@
-import logoCorporacao from "@/assets/logo-corporacao.png";
+import { brand } from "@/config/brand";
 import { cn } from "@/lib/utils";
 
 type LogoMarkProps = {
@@ -13,16 +13,24 @@ type LogoMarkProps = {
 };
 
 /**
- * Brand mark of Corporação Assessoria Esportiva.
+ * Brand mark white label.
+ * Se brand.logo estiver vazio, renderiza um monograma da marca.
  * Shared across header, hero and decorative usages.
  */
 export const LogoMark = ({
   className,
-  alt = "Corporação Assessoria Esportiva",
+  alt = brand.name,
   reveal = false,
   breathe = false,
   interactive = true,
 }: LogoMarkProps) => {
+  const initials = brand.shortName
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
   return (
     <span
       className={cn(
@@ -31,19 +39,35 @@ export const LogoMark = ({
         className,
       )}
     >
-      <img
-        src={logoCorporacao}
-        alt={alt}
-        draggable={false}
-        className={cn(
-          "block w-full h-full object-contain select-none",
-          "transition-[transform,filter] duration-500 ease-out",
-          interactive &&
-            "group-hover/logo:scale-[1.03] group-hover/logo:translate-y-[-1px] group-hover/logo:[filter:drop-shadow(0_0_18px_hsl(121_100%_59%/0.65))]",
-          reveal && "animate-logo-reveal",
-          breathe && "animate-breathe",
+      {brand.logo ? (
+        <img
+          src={brand.logo}
+          alt={alt}
+          draggable={false}
+          className={cn(
+            "block w-full h-full object-contain select-none",
+            "transition-[transform,filter] duration-500 ease-out",
+            interactive &&
+              "group-hover/logo:scale-[1.03] group-hover/logo:translate-y-[-1px] group-hover/logo:[filter:drop-shadow(0_0_18px_hsl(var(--brand)/0.65))]",
+            reveal && "animate-logo-reveal",
+            breathe && "animate-breathe",
+          )}
+        />
+      ) : (
+        <span
+          aria-label={alt}
+          className={cn(
+            "flex items-center justify-center w-full h-full rounded-xl bg-brand text-brand-foreground font-display font-bold tracking-tighter select-none",
+            "transition-[transform,filter] duration-500 ease-out",
+            interactive &&
+              "group-hover/logo:scale-[1.03] group-hover/logo:translate-y-[-1px] group-hover/logo:[filter:drop-shadow(0_0_18px_hsl(var(--brand)/0.65))]",
+            reveal && "animate-logo-reveal",
+            breathe && "animate-breathe",
+          )}
+        >
+          {initials}
+        </span>
         )}
-      />
     </span>
   );
 };

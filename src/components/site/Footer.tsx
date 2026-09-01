@@ -1,7 +1,7 @@
 import { Link } from "@/lib/router-compat";
 import { Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
 import { useSettings, useWhatsappLink } from "@/contexts/SettingsContext";
-import logo from "@/assets/logo.png";
+import { brand } from "@/config/brand";
 
 export const Footer = () => {
   const siteSettings = useSettings();
@@ -12,11 +12,22 @@ export const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img
-                src={logo}
-                alt={`${siteSettings.brand.name} logo`}
-                className="w-11 h-11 object-contain"
-              />
+              {brand.logo ? (
+                <img
+                  src={brand.logo}
+                  alt={`${siteSettings.brand.name} logo`}
+                  className="w-11 h-11 object-contain"
+                />
+              ) : (
+                <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-brand text-brand-foreground font-display font-bold tracking-tighter">
+                  {brand.shortName
+                    .split(" ")
+                    .map((w) => w[0])
+                    .join("")
+                    .slice(0, 2)
+                    .toUpperCase()}
+                </span>
+              )}
               <span className="font-display font-bold text-lg md:text-xl leading-tight">{siteSettings.brand.name}</span>
             </div>
             <p className="text-white/70 max-w-md leading-relaxed">
@@ -89,7 +100,7 @@ export const Footer = () => {
 
         <div className="border-t border-white/10 mt-12 pt-6 flex flex-col md:flex-row gap-3 justify-between items-center text-xs text-white/50">
           <span>© {new Date().getFullYear()} {siteSettings.brand.name}. Todos os direitos reservados.</span>
-          <span>Feito com energia para quem corre.</span>
+          <span>{brand.footerTagline}</span>
         </div>
       </div>
     </footer>

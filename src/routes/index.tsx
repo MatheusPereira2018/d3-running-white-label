@@ -5,8 +5,8 @@ import Index from "@/screens/Index";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: buildMeta({
-      title: "Treinos, provas e planos",
-      description: "Assessoria de corrida: planos de treino, provas, agenda e produtos da Corporação.",
+      title: "Comunidade, eventos e desafios",
+      description: "MovRun Club: comunidade de corrida, eventos, desafios e experiências. Corra, conecte-se e faça parte do movimento.",
       path: "/",
     }),
   }),

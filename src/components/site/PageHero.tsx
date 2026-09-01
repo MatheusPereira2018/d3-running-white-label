@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { brand } from "@/config/brand";
 
 type Props = {
   title: string;
@@ -28,7 +29,7 @@ export const PageHero = ({ title, subtitle, image, light = true, eyebrow }: Prop
       </>
     )}
 
-    {/* Halo verde sutil + linha editorial */}
+    {/* Halo sutil + linha editorial */}
     {!image && (
       <>
         <div
@@ -49,7 +50,7 @@ export const PageHero = ({ title, subtitle, image, light = true, eyebrow }: Prop
         <div className="flex items-center gap-3 mb-5">
           <span aria-hidden className="h-px w-10 bg-brand" />
           <span className="text-[10px] font-semibold tracking-[0.32em] uppercase text-brand">
-            {eyebrow ?? "Corporação"}
+            {eyebrow ?? brand.shortName}
           </span>
         </div>
         <h1 className="font-display text-4xl md:text-6xl font-semibold leading-[1.05] tracking-tight text-balance">
