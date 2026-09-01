@@ -9,6 +9,7 @@
 // ============================================================
 
 import groupPhoto from "@/assets/movrun-group.png.asset.json";
+import logoAsset from "@/assets/movrun-logo.png.asset.json";
 
 export const brand = {
   // Identidade
@@ -20,8 +21,8 @@ export const brand = {
 
   // Logos / favicon
   // Deixe logo vazio para renderizar um monograma automático.
-  logo: "",
-  logoLight: "",
+  logo: logoAsset.url,
+  logoLight: logoAsset.url,
   favicon: "/favicon.ico",
 
   // Cores (hex para referência; as variáveis CSS em styles.css são a fonte da verdade)
