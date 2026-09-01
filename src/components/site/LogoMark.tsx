@@ -45,7 +45,7 @@ export const LogoMark = ({
           alt={alt}
           draggable={false}
           className={cn(
-            "block w-full h-full object-contain select-none",
+            "block w-full h-full object-contain select-none rounded-lg",
             "transition-[transform,filter] duration-500 ease-out",
             interactive &&
               "group-hover/logo:scale-[1.03] group-hover/logo:translate-y-[-1px] group-hover/logo:[filter:drop-shadow(0_0_18px_hsl(var(--brand)/0.65))]",
