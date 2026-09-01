@@ -8,7 +8,7 @@
 // Marca atual: MovRun Club
 // ============================================================
 
-import groupPhoto from "@/assets/movrun-group.png.asset.json";
+import groupPhoto from "@/assets/movrun-hero-crowd.png.asset.json";
 import logoAsset from "@/assets/movrun-logo.png.asset.json";
 
 export const brand = {
