@@ -16,9 +16,20 @@ export type Training = {
   image?: string;     // banner do treino (foto vertical, padrão 9:16)
 };
 
+const stock = (id: string, w = 1200) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+
+const trainingImages = [
+  stock("1517649763962-0c623066013b", 900),
+  stock("1571008887538-b36bb32f4571", 900),
+  stock("1508609349937-5ec4ae374ebf", 900),
+  stock("1544367567-0f2fcb009e0b", 900),
+];
+
 export const trainings: Training[] = [
   {
     id: "t1",
+    image: trainingImages[0],
     title: "Treino de Longão no Ibirapuera",
     date: "2025-05-04",
     time: "06:30",
@@ -30,6 +41,7 @@ export const trainings: Training[] = [
   },
   {
     id: "t2",
+    image: trainingImages[1],
     title: "Tiros na Pista do CERET",
     date: "2025-05-07",
     time: "19:30",
@@ -41,6 +53,7 @@ export const trainings: Training[] = [
   },
   {
     id: "t3",
+    image: trainingImages[2],
     title: "Trote Regenerativo no Villa-Lobos",
     date: "2025-05-09",
     time: "07:00",
@@ -52,6 +65,7 @@ export const trainings: Training[] = [
   },
   {
     id: "t4",
+    image: trainingImages[3],
     title: "Subida de Morro - Jaraguá",
     date: "2025-05-11",
     time: "06:00",

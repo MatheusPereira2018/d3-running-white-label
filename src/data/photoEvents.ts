@@ -22,13 +22,16 @@ export const photoEventStatuses: PhotoEventStatus[] = [
   "Encerrado",
 ];
 
+const stock = (id: string, w = 1200) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+
 export const photoEvents: PhotoEvent[] = [
   {
     id: "1",
-    title: "Treinão Corporação AE",
+    title: "Treinão MovRun Club",
     date: "2026-04-20",
     location: "Araraquara/SP",
-    coverImage: "",
+    coverImage: stock("1552674605-db6ffd4facb5"),
     description: "Confira os registros oficiais do nosso treinão.",
     photoLink: "https://link-da-plataforma-de-fotos.com/evento",
     status: "Fotos disponíveis",
@@ -38,7 +41,7 @@ export const photoEvents: PhotoEvent[] = [
     title: "Corrida Regional",
     date: "2026-05-10",
     location: "Ribeirão Preto/SP",
-    coverImage: "",
+    coverImage: stock("1461896836934-ffe607ba8211"),
     description: "As fotos estarão disponíveis em breve.",
     photoLink: "",
     status: "Em breve",

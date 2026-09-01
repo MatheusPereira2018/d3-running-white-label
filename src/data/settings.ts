@@ -5,6 +5,13 @@
 // ============================================================
 
 import { brand } from "@/config/brand";
+import groupPhoto from "@/assets/movrun-group.png.asset.json";
+import treinaoPhoto from "@/assets/movrun-treinao.png.asset.json";
+import runnerPhoto from "@/assets/movrun-runner.png.asset.json";
+
+// Fotos reais da comunidade + imagens genéricas de corrida (Unsplash)
+const stock = (id: string, w = 1200) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 export const siteSettings = {
   brand: {
@@ -48,21 +55,41 @@ export const siteSettings = {
     instructions: "",
   },
 
-  homeBenefitImages: ["", "", "", "", "", ""],
+  homeBenefitImages: [
+    groupPhoto.url,
+    treinaoPhoto.url,
+    runnerPhoto.url,
+    stock("1552674605-db6ffd4facb5"),
+    stock("1461896836934-ffe607ba8211"),
+    stock("1476480862126-209bfaa8edc8"),
+  ],
 
   images: {
-    homeIntro: "",
-    homeTeamAvatars: ["", "", "", ""] as string[],
-    sobreCoach1: "",
-    sobreCoach2: "",
-    sobreMain: "",
-    sobreGallery: ["", "", ""] as string[],
-    sobreRaces: "",
-    contato: "",
-    welcome: "",
-    pathways: ["", "", ""] as string[],
-    trainingPeaksHero: "",
-    trainingPeaksApp: "",
+    homeIntro: treinaoPhoto.url,
+    homeTeamAvatars: [
+      stock("1546525848-3ce03ca516f6", 200),
+      stock("1500648767791-00dcc994a43e", 200),
+      stock("1544005313-94ddf0286df2", 200),
+      stock("1531123897727-8f129e1688ce", 200),
+    ] as string[],
+    sobreCoach1: runnerPhoto.url,
+    sobreCoach2: stock("1517649763962-0c623066013b"),
+    sobreMain: groupPhoto.url,
+    sobreGallery: [
+      treinaoPhoto.url,
+      stock("1571008887538-b36bb32f4571"),
+      stock("1486218119243-13883505764c"),
+    ] as string[],
+    sobreRaces: stock("1508609349937-5ec4ae374ebf"),
+    contato: groupPhoto.url,
+    welcome: treinaoPhoto.url,
+    pathways: [
+      runnerPhoto.url,
+      stock("1544367567-0f2fcb009e0b"),
+      stock("1552674605-db6ffd4facb5"),
+    ] as string[],
+    trainingPeaksHero: stock("1461896836934-ffe607ba8211", 1600),
+    trainingPeaksApp: stock("1512941937669-90a1b58e7e9c", 800),
   },
 
   trainings: {

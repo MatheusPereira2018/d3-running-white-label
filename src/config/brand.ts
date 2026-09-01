@@ -8,6 +8,8 @@
 // Marca atual: MovRun Club
 // ============================================================
 
+import groupPhoto from "@/assets/movrun-group.png.asset.json";
+
 export const brand = {
   // Identidade
   name: "MovRun Club",
@@ -23,7 +25,7 @@ export const brand = {
   favicon: "/favicon.ico",
 
   // Cores (hex para referência; as variáveis CSS em styles.css são a fonte da verdade)
-  primaryColor: "#111111",
+  primaryColor: "#1354D6",
   secondaryColor: "#FFFFFF",
 
   // Contato e redes
@@ -53,7 +55,7 @@ export const brand = {
     primaryCta: "Ver próximas corridas",
     secondaryCta: "Entrar para a comunidade",
     // Deixe vazio para usar o fallback visual (gradiente) no Index.tsx
-    image: "",
+    image: groupPhoto.url,
     stats: [
       { value: "1.200+", label: "pessoas na comunidade" },
       { value: "3+", label: "anos movimentando a cidade" },

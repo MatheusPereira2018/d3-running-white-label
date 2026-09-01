@@ -5,6 +5,8 @@
 // ============================================================
 import { brand } from "@/config/brand";
 import { events as staticEvents } from "@/data/events";
+import groupPhoto from "@/assets/movrun-group.png.asset.json";
+import treinaoPhoto from "@/assets/movrun-treinao.png.asset.json";
 
 export type MockPartner = {
   id: string;
@@ -105,7 +107,7 @@ export const mockHomeHighlights: MockHighlight[] = [
     title: "Treinos em grupo toda semana",
     subtitle: `Encontros do ${brand.name} com coaches acompanhando cada ritmo.`,
     eyebrow: "Comunidade",
-    image: brand.hero.image,
+    image: treinaoPhoto.url,
     image_position: "center",
     image_fit: "cover",
     button_label: "Ver treinos",
@@ -116,7 +118,7 @@ export const mockHomeHighlights: MockHighlight[] = [
     title: "Provas com a equipe",
     subtitle: "Calendário de corridas para correr junto e evoluir.",
     eyebrow: "Calendário",
-    image: brand.hero.image,
+    image: groupPhoto.url,
     image_position: "center",
     image_fit: "cover",
     button_label: "Ver provas",
