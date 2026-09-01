@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "2e63c7c3-9aad-4a6c-89c7-d4d1d34e2208",
+  "asset_id": "f220777d-b0e9-4af1-8a2d-b029e9243535",
   "project_id": "dde5fbb2-919e-4ae8-8384-663f9dbd2b39",
-  "url": "/__l5e/assets-v1/2e63c7c3-9aad-4a6c-89c7-d4d1d34e2208/movrun-hero-crowd.png",
-  "r2_key": "a/v1/dde5fbb2-919e-4ae8-8384-663f9dbd2b39/2e63c7c3-9aad-4a6c-89c7-d4d1d34e2208/movrun-hero-crowd.png",
+  "url": "/__l5e/assets-v1/f220777d-b0e9-4af1-8a2d-b029e9243535/movrun-hero-crowd.png",
+  "r2_key": "a/v1/dde5fbb2-919e-4ae8-8384-663f9dbd2b39/f220777d-b0e9-4af1-8a2d-b029e9243535/movrun-hero-crowd.png",
   "original_filename": "movrun-hero-crowd.png",
-  "size": 3019506,
-  "content_type": "image/png",
-  "created_at": "2026-09-01T17:36:46Z"
+  "size": 224764,
+  "content_type": "image/webp",
+  "created_at": "2026-09-01T17:42:22Z"
 }
