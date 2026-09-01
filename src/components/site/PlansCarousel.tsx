@@ -89,7 +89,7 @@ export const PlansCarousel = ({ plans }: { plans: Plan[] }) => {
             <div
               key={p.id}
               data-plan-card
-              className={`snap-start shrink-0 w-[82%] sm:w-[46%] md:w-[31%] lg:w-[calc((100%-4.5rem)/4)] flex relative ${
+              className={`snap-start shrink-0 w-[82%] sm:w-[46%] md:w-[31%] lg:w-[30%] lg:max-w-[360px] flex relative ${
                 isCheapest ? "md:scale-100" : ""
               }`}
             >
