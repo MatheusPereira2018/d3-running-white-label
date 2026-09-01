@@ -81,7 +81,7 @@ export const PlansCarousel = ({ plans }: { plans: Plan[] }) => {
     <>
       <div
         ref={scrollerRef}
-        className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pt-6 pb-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden items-stretch"
+        className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pt-6 pb-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden items-stretch md:justify-center"
       >
         {sortedPlans.map((p) => {
           const isCheapest = p.id === cheapestId;
